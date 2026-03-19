@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCEA AS 3: Health and Well-being Revision - Topic 2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .max-width {
+            max-width: 950px;
+            margin: auto;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        .header-box {
+            background-color: #8e44ad;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header-box h1 {
+            color: white;
+            margin: 0;
+            font-size: 2.2em;
+        }
+        /* Accordion Styles */
+        .accordion {
+            background-color: #fff;
+            color: #2c3e50;
+            cursor: pointer;
+            padding: 20px;
+            width: 100%;
+            border: 1px solid #ddd;
+            text-align: left;
+            outline: none;
+            font-size: 19px;
+            transition: 0.4s;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .active, .accordion:hover {
+            background-color: #f4ebf9;
+            border-left: 6px solid #8e44ad;
+        }
+        .panel {
+            padding: 0 25px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            border-radius: 0 0 5px 5px;
+        }
+        .panel p, .panel ul {
+            margin: 15px 0;
+        }
+        .panel h4 {
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #8e44ad;
+            border-bottom: 2px solid #f4ebf9;
+            padding-bottom: 5px;
+        }
+        .impact-list li {
+            margin-bottom: 12px;
+        }
+        /* Exam Practice Area */
+        .exam-area {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 50px;
+            border-top: 6px solid #f39c12;
+        }
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        .hint-box {
+            background-color: #fdf2e9;
+            padding: 15px;
+            border-left: 4px solid #e67e22;
+            margin-bottom: 20px;
+            font-style: italic;
+            border-radius: 0 4px 4px 0;
+        }
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: vertical;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #8e44ad;
+        }
+        button {
+            background-color: #27ae60;
+            color: white;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2ecc71;
+        }
+        #promptOutputBox {
+            display: none;
+            background-color: #fdfae6;
+            padding: 20px;
+            border-left: 5px solid #f1c40f;
+            margin-top: 25px;
+            border-radius: 4px;
+        }
+        #generatedPrompt {
+            width: 100%;
+            height: 250px;
+            font-family: monospace;
+            font-size: 13px;
+            margin-top: 10px;
+            background-color: #fff;
+        }
+        .copy-btn {
+            background-color: #34495e;
+            margin-top: 10px;
+        }
+        .copy-btn:hover {
+            background-color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+<div class="max-width">
+    <div class="header-box">
+        <h1>Unit AS 3: Health and Well-being</h1>
+        <p>Topic 2: Comprehensive Factors Affecting Health and Well-being</p>
+    </div>
+
+    <h2>Masterclass Revision Notes</h2>
+    <p>Click the headings below to expand highly detailed notes. These points contain the extended chains of reasoning and specific "knock-on" effects required to achieve top band Level 3 marks.</p>
+
+    <button class="accordion">1. Socio-Economic Factors (Class, Housing, Gender, Culture)</button>
+    <div class="panel">
+        <p><em>Exam Tip: Socio-economic factors are linked to a person's standing in society, income, and background.</em></p>
+        
+        <h4>Social Class</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> People in higher social classes often have better access to good-quality food, heating, and housing, meaning they are less likely to develop illnesses linked to poor nutrition. They can afford private healthcare, meaning illnesses are detected and treated earlier, leading to better long-term physical outcomes. Lower-income individuals are more exposed to environmental hazards and manual labour jobs, increasing the risk of respiratory problems, injuries, and a generally shorter life expectancy.</li>
+            <li><strong>Psychological:</strong> Individuals from lower social classes may experience chronic stress levels due to intense financial pressures, insecure employment, or lack of opportunities, leading to severe anxiety or depression. Comparing themselves to those in higher classes may reduce self-esteem and create feelings of inadequacy or exclusion. Higher social classes benefit emotionally from therapeutic services and reduced financial worry.</li>
+            <li><strong>Social:</strong> A severe lack of disposable income in lower social classes restricts participation in leisure activities, sports, or family holidays. This inability to afford social events narrows their social networks and frequently causes isolation, whereas higher classes can easily afford club memberships and socializing.</li>
+        </ul>
+
+        <h4>Housing</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> Damp, cold, and mouldy environments severely impact the respiratory system, triggering conditions like asthma and bronchitis, while cold homes lead to hypothermia in older people. Overcrowding rapidly increases the spread of infectious diseases. A lack of safe outdoor space (e.g., living in high-rise flats) reduces a child's opportunity for physical exercise, leading to obesity and slower physical development.</li>
+            <li><strong>Psychological:</strong> Living in cramped conditions eradicates privacy and involves constant noise, leading to chronic stress, irritability, and an inability to relax. People may feel deeply embarrassed by their living situation, especially if peers have better housing, leading to a negative self-concept. Ongoing financial struggles related to housing create persistent worry and sadness, reducing emotional resilience.</li>
+            <li><strong>Social:</strong> High noise levels and overcrowding cause intense conflict between family members, damaging communication within the household. Furthermore, feeling ashamed of their home stops individuals from inviting friends over, leading to severe social isolation. Children without outdoor space have fewer opportunities for play, stunting their ability to form friendships.</li>
+        </ul>
+
+        <h4>Gender</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> Women are the biggest users of healthcare (due to child-bearing and screening programmes) and generally live longer. However, men suffer much higher rates of fatal conditions like heart disease and bladder cancer, and are far more prone to serious workplace injuries due to a higher presence in manual labour sectors.</li>
+            <li><strong>Psychological:</strong> Societal pressure on men to "hide" their emotions leads to significantly higher suicide rates and large numbers of undiagnosed depression cases. Women, conversely, often suffer from post-natal depression or intense stress from acting as the primary caregivers for children and elderly relatives.</li>
+            <li><strong>Social:</strong> Strict gender stereotyping may limit social networks; for example, women may become isolated at home raising children, or men may struggle to form emotionally open, supportive friendships with other men.</li>
+        </ul>
+
+        <h4>Culture and Ethnicity</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> Specific cultural diets can impact health; some are extremely high in sugar and fat, drastically increasing the risk of Type 2 diabetes and obesity. Additionally, language barriers may prevent minority ethnic groups from accessing vital healthcare, attending screenings, or understanding prescription instructions.</li>
+            <li><strong>Psychological:</strong> Facing racism, prejudice, or discrimination creates chronic anxiety, fear, and low self-worth. It can cause individuals to feel entirely alienated and disconnected from mainstream society, severely impacting their mental health.</li>
+            <li><strong>Social:</strong> Strong cultural communities provide excellent, tight-knit support networks and frequent social events (e.g., religious gatherings) which boost belonging. However, discrimination from wider society can force individuals into isolated cultural bubbles, restricting wider social integration.</li>
+        </ul>
+    </div>
+
+    <button class="accordion">2. Physical Factors (Genetics & Ageing Illnesses)</button>
+    <div class="panel">
+        <p><em>Exam Tip: Physical factors are medical conditions. You must know the difference between Genetic (inherited) and Ageing (chronic) conditions.</em></p>
+        
+        <h4>Genetic: Cystic Fibrosis</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> Thick, sticky mucus builds up in the lungs causing repeated, severe chest infections and reduced lung capacity, weakening stamina and daily physical functioning. Digestive difficulties limit nutrient absorption and weight gain, reducing energy levels. Long-term organ damage to the lungs and liver, alongside a reduced life expectancy, severely restricts independence.</li>
+            <li><strong>Psychological:</strong> Frequent hospital treatments and painful therapies lead to intense frustration, sadness, and anxiety about the future, reducing motivation. Time away from school or work lowers self-esteem and confidence as individuals feel "different" from peers. However, some individuals develop a positive mindset and immense emotional resilience due to the unpredictable nature of the condition.</li>
+            <li><strong>Social:</strong> Frequent hospital appointments reduce the time available for friendships and shared activities, weakening social networks. Children miss school and struggle to maintain peer relationships, increasing isolation. Strict infection control rules preventing contact with others who have cystic fibrosis removes a vital source of shared support and understanding.</li>
+        </ul>
+
+        <h4>Genetic: Huntington's Disease</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> A progressive, fatal breakdown of nerve cells in the brain. This causes uncontrollable, jerky movements (chorea), a complete loss of physical mobility, and eventually an inability to swallow, eat, or speak independently.</li>
+            <li><strong>Psychological:</strong> Knowing the condition is progressive and fatal causes severe depression and hopelessness. As the brain damage worsens, it causes dramatic personality changes, intense paranoia, and extreme mood swings.</li>
+            <li><strong>Social:</strong> As physical mobility and speech completely decline, the individual becomes entirely isolated, unable to communicate. The aggressive mood swings and personality changes can also alienate family members and destroy lifelong relationships.</li>
+        </ul>
+
+        <h4>Ageing / Chronic: Osteoarthritis</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> Severe joint pain, stiffness, and swelling reduce daily mobility, making tasks like walking or climbing stairs exhausting. Loss of joint flexibility massively increases the risk of dangerous falls and fractures. Long-term discomfort reduces overall activity levels, which further worsens physical health by decreasing overall muscle strength and fitness.</li>
+            <li><strong>Psychological:</strong> Chronic, unending pain massively lowers mood, motivation, and emotional resilience. Fear of worsening mobility causes anxiety about the future. Losing independence makes the individual feel like a "burden" on their family and carers, completely crushing their self-esteem and increasing sadness.</li>
+            <li><strong>Social:</strong> Reduced mobility and fatigue physically restrict participation in formerly active hobbies, sports, and social activities, leading to fewer opportunities to maintain friendships. Individuals may withdraw from events they once enjoyed due to discomfort or embarrassment over their mobility aids, increasing isolation. Family may provide strong support, but loneliness often still occurs.</li>
+        </ul>
+
+        <h4>Ageing / Chronic: Type 2 Diabetes</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> The inability to regulate blood sugar causes severe fatigue, excessive thirst, and frequent urination. Long-term, uncontrolled diabetes leads to devastating physical damage, including vision loss (retinopathy), kidney failure, or nerve damage leading to foot amputations.</li>
+            <li><strong>Psychological:</strong> Sufferers often experience "diabetes distress"—a constant, exhausting worry about monitoring blood sugar, taking medication, and managing their diet. A loss of vision or mobility from complications will severely impact their independence, leading to depression.</li>
+            <li><strong>Social:</strong> Strict dietary restrictions can make eating out or attending social events highly stressful. To avoid the hassle or embarrassment of explaining their diet, the individual may simply decline invitations and withdraw socially. Joining support groups, however, can create helpful new connections.</li>
+        </ul>
+    </div>
+
+    <button class="accordion">3. Environmental Factors (Location, Pollution, Hazards)</button>
+    <div class="panel">
+        <p><em>Exam Tip: Environmental factors relate to WHERE a person lives or works and the hazards present there.</em></p>
+        
+        <h4>Geographical Location (Rural vs Urban)</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> Individuals in urban areas with good public transport can attend GP appointments and access health facilities more easily, improving early diagnosis and physical outcomes. In contrast, people in isolated rural areas face dangerously long ambulance response times, increasing the severity of emergencies. Access to safe parks, green spaces, or coastal areas increases physical activity, improving fitness.</li>
+            <li><strong>Psychological:</strong> Isolated rural living may lead to profound loneliness and reduced daily contact, increasing the risk of low mood and anxiety. Busy urban environments contribute to chronic stress due to noise, overcrowding, and a fast pace of life, which affects emotional balance. Access to accessible natural environments provides crucial relaxation and promotes positive mental well-being.</li>
+            <li><strong>Social:</strong> Cities provide diverse social venues (clubs, gyms, cafes, cinemas), making it easy to form new relationships. Rural living severely limits socializing to small, close-knit community events, which can be supportive but restricting. High transport costs in rural areas may also prevent people from travelling to meet friends.</li>
+        </ul>
+
+        <h4>Pollution (Air, Water, Noise)</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> High air pollution and smog drastically increase the likelihood of respiratory conditions like asthma, bronchitis, and long-term risks like heart disease and cancer. Severe noise pollution disturbs sleep, causing extreme daytime fatigue which affects concentration and the ability to complete physical tasks. Water pollution may lead to stomach upsets which weaken the immune system.</li>
+            <li><strong>Psychological:</strong> Constant noise pollution disrupts relaxation and emotional stability, causing persistent irritability and stress. Worrying about local health risks causes chronic anxiety. Long-term exposure to polluted environments has been linked with low mood and cognitive decline. Individuals experience frustration and helplessness when pollution prevents outdoor activities.</li>
+            <li><strong>Social:</strong> Pollution severely discourages people from leaving their homes or using local parks, especially those with respiratory problems, isolating vulnerable individuals. High pollution may increase personal costs (e.g., buying air purifiers or travelling away from the area), reducing money available for social events. Community interaction weakens as people avoid outdoor gathering places.</li>
+        </ul>
+
+        <h4>Occupational Hazards (Impacts by Job Type)</h4>
+        <ul class="impact-list">
+            <li><strong>Physical Impacts:</strong> 
+                <br>• <em>Manual/Industrial (Construction, Farming, Factory):</em> Heavy lifting causes severe musculoskeletal issues, back injuries, and joint damage. Exposure to hazardous chemicals, asbestos, or dust leads to long-term respiratory diseases (e.g., COPD). Continuous loud machinery causes permanent hearing loss (tinnitus).
+                <br>• <em>Healthcare/Emergency Services (Nurses, Police):</em> High risk of exposure to biological hazards (infectious diseases, needlestick injuries) and physical assaults from patients/public.
+                <br>• <em>Office/Corporate:</em> Highly sedentary desk jobs drastically increase the risk of obesity, deep vein thrombosis (DVT), and cardiovascular disease. Poor ergonomics cause repetitive strain injury (RSI) and chronic neck/back pain.
+                <br>• <em>Retail/Hospitality:</em> Standing for long 8-12 hour shifts causes chronic foot pain, varicose veins, and lower back stress.
+            </li>
+            <li><strong>Psychological Impacts:</strong> 
+                <br>• <em>High-Pressure Roles (Nursing, Teaching, Social Work):</em> Continuous exposure to trauma or intense responsibility causes severe emotional stress, compassion fatigue, mental burnout, and in extreme cases, PTSD.
+                <br>• <em>Insecure/Gig Economy Roles (Retail, Delivery):</em> Dealing with abusive customers, unpredictable zero-hour contracts, and lack of job security causes constant, crippling financial anxiety and feelings of powerlessness.
+                <br>• <em>Farming/Remote Work:</em> Working alone in isolated environments for long hours can lead to severe isolation and depression.
+            </li>
+            <li><strong>Social Impacts:</strong> 
+                <br>• <em>Shift Work (Healthcare, Factory, Hospitality):</em> Working nights, weekends, and anti-social hours severely limits the time an individual can spend with their family. This frequently causes marital strain and forces individuals to miss important social events, leading to isolation.
+                <br>• <em>Physical Exhaustion:</em> Manual laborers or those working excessive hours may be simply too physically exhausted to participate in social activities, sports, or hobbies on their days off.
+                <br>• <em>Loss of Network:</em> Workplaces are major sources of adult social interaction; losing a job due to an occupational injury or redundancy immediately cuts off a person's primary social network, leading to rapid social withdrawal.
+            </li>
+        </ul>
+    </div>
+
+    <button class="accordion">4. Behavioural Factors (Lifestyle Choices)</button>
+    <div class="panel">
+        <p><em>Exam Tip: Behavioural factors are lifestyle choices that the individual often has direct control over.</em></p>
+        
+        <h4>Alcohol Misuse</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> Drinking large amounts places severe strain on the liver, leading to inflammation, scarring, and long-term liver failure. It raises blood pressure and affects the cardiovascular system, increasing the likelihood of stroke and cancers (mouth, breast, stomach). Alcohol seriously impairs coordination and judgement, leading to accidents, drink-driving incidents, and unsafe sexual behaviour (raising the risk of injuries, STIs, and unplanned pregnancy).</li>
+            <li><strong>Psychological:</strong> Creates a damaging cycle of emotional and cognitive decline. Individuals experience intense guilt, shame, and low self-esteem over regrettable drunken behaviour, leading to a negative self-concept. Alcohol disrupts memory and concentration, causing problems with information processing and decision-making, leading to frustration and depression over time.</li>
+            <li><strong>Social:</strong> Unpredictable, aggressive, or selfish behaviour ruins marriages and destroys trust within families, leading to relationship breakdowns. The massive financial cost of funding an alcohol habit leads to severe debt, preventing the individual from paying for family social outings or holidays, further isolating them.</li>
+        </ul>
+
+        <h4>Exercise</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> Strengthens the cardiovascular system, maintains a healthy weight, and builds bone density. This vastly reduces the long-term risk of developing Type 2 diabetes, osteoporosis, and heart disease, improving stamina for daily tasks.</li>
+            <li><strong>Psychological:</strong> Physical activity releases endorphins, which act as natural mood-lifters, aggressively combating stress, anxiety, and symptoms of depression. Feeling fitter boosts self-esteem, self-image, and confidence. Regular exercise improves concentration and memory, supporting cognitive functioning in school or work. Achieving fitness goals gives a sense of accomplishment. <em>(Exception: Over-dependence on exercise as a coping strategy can cause severe guilt or anxiety if a session is missed).</em></li>
+            <li><strong>Social:</strong> Participating in team sports and group fitness classes encourages cooperation, communication, and teamwork, helping individuals build strong interpersonal skills. Joining sports clubs or gyms widens a person's social circle, helps them form new friendships, and vastly increases their sense of community belonging.</li>
+        </ul>
+
+        <h4>Diet (Poor Diet vs Healthy Diet)</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> A diet high in saturated fats, salt, and sugar causes severe obesity, clogged arteries, high blood pressure, and eventual heart attacks. Conversely, a healthy, balanced diet provides vital nutrients and vitamins that boost the immune system, increase daily energy levels, and promote physical healing.</li>
+            <li><strong>Psychological:</strong> Obesity resulting from a poor diet frequently leads to severe body image issues, negative self-concept, and clinical depression. Furthermore, a diet lacking in essential nutrients can cause extreme sluggishness, poor concentration, and low mood.</li>
+            <li><strong>Social:</strong> Individuals suffering from obesity or a poor self-image may feel too deeply embarrassed about their weight to go swimming, attend parties, or socialize. This self-consciousness leads to complete social withdrawal and isolation.</li>
+        </ul>
+
+        <h4>Smoking</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> The inhalation of tar coats the lungs, directly causing lung cancer, emphysema, and chronic bronchitis. Nicotine raises blood pressure and damages the heart. It severely reduces lung capacity, making physical exercise exhausting.</li>
+            <li><strong>Psychological:</strong> Nicotine is a highly addictive substance; trying to quit or going without a cigarette causes severe irritability, stress, and mood swings. Smokers may feel extremely weak-willed or guilty if they repeatedly fail to quit, lowering their self-worth.</li>
+            <li><strong>Social:</strong> The smell of stale smoke on clothes and breath can be highly off-putting to non-smokers, creating awkward social barriers. Legal bans restrict where people can socialize (e.g., outdoors at pubs/cinemas). Furthermore, it is hugely expensive, drastically reducing disposable income for other social activities.</li>
+        </ul>
+
+        <h4>Illegal Drug Use</h4>
+        <ul class="impact-list">
+            <li><strong>Physical:</strong> Poses an immediate, daily risk of fatal overdose. Injecting drugs causes collapsed veins and high rates of blood-borne viruses like HIV and Hepatitis. Long-term use causes severe, irreversible heart and brain damage, and extreme physical deterioration (weight loss, dental decay).</li>
+            <li><strong>Psychological:</strong> Drugs induce intense paranoia, terrifying hallucinations, and permanent drug-induced psychosis. The addiction completely dominates the user's thoughts, creating extreme desperation, chronic anxiety, and utterly destroying their self-concept.</li>
+            <li><strong>Social:</strong> Feeds a destructive cycle of crime and theft to fund the expensive habit, frequently leading to prison sentences. The desperate behaviour completely destroys trust within families, often leading to eviction, homelessness, and total isolation from sober friends.</li>
+        </ul>
+    </div>
+
+    <div class="exam-area">
+        <h2>High-Value Question Practice Area</h2>
+        <p>Select a 12-mark past-paper question, type your answer using the <strong>Physical, Psychological, and Social (PSP)</strong> paragraph structure, and generate your feedback prompt.</p>
+        
+        <label for="questionSelect"><strong>Select a Question:</strong></label>
+        <select id="questionSelect" onchange="updateQuestionHint()">
+            <option value="q1">Assess how alcohol misuse may impact an individual physically, psychologically and socially. (12 marks)</option>
+            <option value="q2">Analyse how geographical location can impact on an individual’s health and well-being. (12 marks)</option>
+            <option value="q3">Analyse how cystic fibrosis can impact on an individual’s health and well-being. (12 marks)</option>
+            <option value="q4">Analyse how social class can impact on an individual’s physical, psychological and social well-being. (12 marks)</option>
+            <option value="q5">Assess how poor housing can impact an individual’s physical, psychological and social well-being. (12 marks)</option>
+            <option value="q6">Analyse how Type 2 diabetes can impact on an individual’s health and well-being. (12 marks)</option>
+            <option value="q7">Analyse how occupational hazards can impact on an individual's health and well-being. (12 marks)</option>
+            <option value="q8">Assess how regular exercise can impact an individual physically, psychologically and socially. (12 marks)</option>
+        </select>
+
+        <div id="hintBox" class="hint-box">
+            <strong>Exam Tip:</strong> For this 12-mark question, dedicate one detailed paragraph to Physical impacts, one to Psychological impacts, and one to Social impacts. Ensure you explain the "knock-on" effects (e.g., impaired coordination leads to accidents/injuries).
+        </div>
+        
+        <textarea id="studentAnswer" rows="14" placeholder="Type your 3-paragraph (PSP) answer here..."></textarea>
+        
+        <button onclick="generateAIPrompt()">Generate Marking Rubric & Feedback Prompt</button>
+
+        <div id="promptOutputBox">
+            <h3>Step 2: Get Your Feedback!</h3>
+            <p>Your answer is ready to be marked. Click "Copy to Clipboard", then paste it into an AI tool (like ChatGPT or Gemini) to get instant CCEA-style feedback.</p>
+            <textarea id="generatedPrompt" readonly></textarea>
+            <button class="copy-btn" onclick="copyPrompt()">Copy to Clipboard</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Accordion Logic
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+        });
+    }
+
+    // Update Hints based on Dropdown Selection
+    function updateQuestionHint() {
+        var q = document.getElementById("questionSelect").value;
+        var hintBox = document.getElementById("hintBox");
+        
+        var hints = {
+            "q1": "<strong>Exam Tip:</strong> Structure by Physical, Psychological, and Social. Mention liver scarring/cancer, feelings of guilt/shame over actions, memory disruption, and the impact of aggressive behaviour on relationships.",
+            "q2": "<strong>Exam Tip:</strong> Contrast rural vs urban. Mention access to transport/hospitals (Physical), the stress of cities vs rural isolation (Psychological), and the availability of social venues (Social).",
+            "q3": "<strong>Exam Tip:</strong> Mention the physical build-up of mucus and organ damage. For psychological, talk about anxiety over life expectancy but also mention resilience! For social, mention missed school and infection control rules.",
+            "q4": "<strong>Exam Tip:</strong> Discuss access to private healthcare/nutrition (Physical), stress of financial pressures or feeling inadequate (Psychological), and lack of disposable income for hobbies (Social).",
+            "q5": "<strong>Exam Tip:</strong> Discuss damp/mould causing respiratory issues (Physical), stress/embarrassment of cramped conditions and lack of privacy (Psychological), and avoiding bringing friends home (Social).",
+            "q6": "<strong>Exam Tip:</strong> Mention fatigue/vision loss (Physical), diabetes distress or anxiety about monitoring blood sugar (Psychological), and dietary restrictions ruining social events/eating out (Social).",
+            "q7": "<strong>Exam Tip:</strong> Give a range of examples! Contrast manual labour (back injuries) with office jobs (obesity/RSI). Mention psychological burnout in nursing/teaching. Discuss how shift work strains marriages.",
+            "q8": "<strong>Exam Tip:</strong> Discuss cardiovascular health (Physical), the release of endorphins boosting mood and memory (Psychological), and making friends/learning teamwork through team sports/gym classes (Social)."
+        };
+        
+        hintBox.innerHTML = hints[q];
+    }
+
+    // Prompt Generation Logic
+    function generateAIPrompt() {
+        var studentText = document.getElementById("studentAnswer").value;
+        var selectedQuestion = document.getElementById("questionSelect");
+        var questionText = selectedQuestion.options[selectedQuestion.selectedIndex].text;
+        var qValue = selectedQuestion.value;
+
+        if (studentText.trim() === "") {
+            alert("Please type an answer before generating feedback!");
+            return;
+        }
+
+        var markScheme = `- Level 1 (1-4): Adequate knowledge. - Level 2 (5-8): Competent analysis. - Level 3 (9-12): Highly competent analysis. MUST address Physical, Psychological, and Social well-being comprehensively to hit Level 3. Look heavily for extended chains of reasoning and "knock-on" effects.`;
+
+        var promptTemplate = `Act as an expert CCEA GCE Health and Social Care examiner marking Year 13 papers.
+Please mark the following student answer to this 12-mark question:
+"${questionText}"
+
+### Marking Instructions & CCEA Mark Scheme:
+${markScheme}
+Check heavily for the PEE (Point, Evidence, Explanation) structure. The student should have written 3 distinct paragraphs (Physical, Psychological, Social). Quality of Written Communication (QWC) is heavily assessed.
+
+### Student Answer:
+"""
+${studentText}
+"""
+
+### Feedback Required:
+1. What went well (Highlight strong PEE structures, extended reasoning, and correct use of terminology).
+2. Even better if (Identify missing explanations, or if they forgot to link a point back to well-being).
+3. An estimated Mark (out of 12) based on the CCEA Levelled banding with a brief justification.`;
+
+        document.getElementById("generatedPrompt").value = promptTemplate;
+        document.getElementById("promptOutputBox").style.display = "block";
+    }
+
+    function copyPrompt() {
+        var copyText = document.getElementById("generatedPrompt");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value);
+        alert("Prompt copied! Now paste this into ChatGPT, Gemini, or Claude.");
+    }
+</script>
+
+</body>
+</html>

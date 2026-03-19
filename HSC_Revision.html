@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCEA AS 3: Health and Well-being Revision - Topic 1</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .max-width {
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        .header-box {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header-box h1 {
+            color: white;
+            margin: 0;
+        }
+        /* Accordion Styles */
+        .accordion {
+            background-color: #fff;
+            color: #2c3e50;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: 1px solid #ddd;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: 0.4s;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .active, .accordion:hover {
+            background-color: #e9ecef;
+            border-left: 5px solid #3498db;
+        }
+        .panel {
+            padding: 0 20px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            border-radius: 0 0 5px 5px;
+        }
+        .panel p, .panel ul {
+            margin: 15px 0;
+        }
+        .panel h4 {
+            margin-top: 20px;
+            margin-bottom: 5px;
+            color: #2980b9;
+        }
+        /* Exam Practice Area */
+        .exam-area {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 40px;
+            border-top: 5px solid #e74c3c;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        .hint-box {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: vertical;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        button {
+            background-color: #27ae60;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #2ecc71;
+        }
+        #promptOutputBox {
+            display: none;
+            background-color: #fdfae6;
+            padding: 15px;
+            border-left: 5px solid #f1c40f;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        #generatedPrompt {
+            width: 100%;
+            height: 200px;
+            font-family: monospace;
+            font-size: 13px;
+            margin-top: 10px;
+            background-color: #fff;
+        }
+        .copy-btn {
+            background-color: #34495e;
+            margin-top: 10px;
+        }
+        .copy-btn:hover {
+            background-color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+<div class="max-width">
+    <div class="header-box">
+        <h1>Unit AS 3: Health and Well-being</h1>
+        <p>Topic 1: Concepts of Health & Needs of Service Users (Comprehensive Notes)</p>
+    </div>
+
+    <h2>Revision Notes</h2>
+    <p>Click on the headings below to expand highly detailed specification notes before attempting the exam practice.</p>
+
+    <button class="accordion">1. Definitions of Health Concepts</button>
+    <div class="panel">
+        <ul>
+            <li><strong>Health:</strong> A positive concept which suggests well-being as opposed to disease or illness. It involves physical, social, emotional, mental, spiritual and environmental dimensions. It is not merely the absence of disease.</li>
+            <li><strong>Ill-Health:</strong> A state in which an individual is unable to function normally and without pain. Ill-health can be the presence of something negative (a disease) or the absence of something positive (adequate nutrition).</li>
+            <li><strong>Disease:</strong> A diagnostic label given to a set of signs and symptoms. It is usually long-term and can result from injuries, accidents or infections (e.g., coronary heart disease, Alzheimer's disease).</li>
+            <li><strong>Stress-Related Illness:</strong> Physical symptoms such as headaches, stomach problems, anxiety and depression as a result of short or long-term exposure to stressors (work, finances, family problems).</li>
+            <li><strong>Mental Health:</strong> A form of subjective well-being where an individual feels they can cope with life and are in control; they can face challenges and take on responsibility.</li>
+            <li><strong>Mental Illness:</strong> A psychological condition characterised by abnormal and often undesired behaviour (e.g., violent mood swings, severe depression) linked to chemical changes in the brain.</li>
+        </ul>
+    </div>
+
+    <button class="accordion">2. PIES Needs of Specific Service Users</button>
+    <div class="panel">
+        <p>All service users have Physical, Intellectual, Emotional, and Social (PIES) needs, but these manifest differently depending on the group:</p>
+        
+        <h4>Children</h4>
+        <ul>
+            <li><strong>Physical:</strong> Nutritious diet for growth, safe environment/shelter, immunisations, plenty of sleep and exercise.</li>
+            <li><strong>Intellectual:</strong> Opportunities for play, cognitive stimulation (toys/books), learning new skills (language/numbers).</li>
+            <li><strong>Emotional:</strong> Love, affection, secure attachments to caregivers, praise to build self-esteem.</li>
+            <li><strong>Social:</strong> Opportunities to interact with peers, learning to share/turn-take, developing friendships.</li>
+        </ul>
+
+        <h4>Older People</h4>
+        <ul>
+            <li><strong>Physical:</strong> Medication management, mobility aids (zimmer frames), warmth, specialized diets, personal care assistance.</li>
+            <li><strong>Intellectual:</strong> Mental stimulation to prevent cognitive decline (puzzles, reading, reminiscence therapy).</li>
+            <li><strong>Emotional:</strong> Being treated with dignity and respect, maintaining a sense of autonomy/independence, feeling valued.</li>
+            <li><strong>Social:</strong> Combating isolation/loneliness, attending day centres, maintaining contact with family and friends.</li>
+        </ul>
+
+        <h4>Those with Illnesses / Physical Disabilities</h4>
+        <ul>
+            <li><strong>Physical:</strong> Pain relief, specialist medical treatments, physiotherapy, wheelchair-accessible environments.</li>
+            <li><strong>Intellectual:</strong> Clear information regarding their diagnosis and treatment, accessible formats for learning (e.g., braille, audio).</li>
+            <li><strong>Emotional:</strong> Empathy, reassurance to alleviate fear/anxiety about their condition, support to maintain a positive self-concept.</li>
+            <li><strong>Social:</strong> Help accessing social venues, support to maintain employment/hobbies to prevent isolation.</li>
+        </ul>
+
+        <h4>Learning Disabilities & Mental Health Needs</h4>
+        <ul>
+            <li><strong>Physical:</strong> Support with self-care or hygiene (if required), safe environments, monitoring of medication side effects.</li>
+            <li><strong>Intellectual:</strong> Tailored educational plans (life skills), therapeutic interventions (like CBT for mental health).</li>
+            <li><strong>Emotional:</strong> Patience, non-judgmental environments, reducing stigma, building confidence and self-worth.</li>
+            <li><strong>Social:</strong> Supported social groups, befriending schemes, learning social cues and appropriate interactions.</li>
+        </ul>
+    </div>
+
+    <button class="accordion">3. Meeting Needs in Health, Social Care & Early Years Settings</button>
+    <div class="panel">
+        <h4>Health Settings (e.g., Hospitals, GP Clinics)</h4>
+        <ul>
+            <li><strong>Physical:</strong> Administering prescribed medication, performing surgeries, providing pain management, monitoring vital signs.</li>
+            <li><strong>Intellectual:</strong> Doctors/Nurses explaining procedures and providing health education leaflets about conditions.</li>
+            <li><strong>Emotional:</strong> Nurses providing a listening ear, showing empathy, and offering reassurance before a procedure.</li>
+            <li><strong>Social:</strong> Providing day rooms/ward lounges for patients to interact, having flexible visiting hours for families.</li>
+        </ul>
+
+        <h4>Social Care Settings (e.g., Residential Homes, Day Centres)</h4>
+        <ul>
+            <li><strong>Physical:</strong> Care assistants helping with washing, dressing, feeding, and ensuring the environment is warm and safe.</li>
+            <li><strong>Intellectual:</strong> Organizing quiz afternoons, reading newspapers to residents, or bringing in guest speakers.</li>
+            <li><strong>Emotional:</strong> Promoting independence by letting service users choose their own clothes, celebrating birthdays to make them feel special.</li>
+            <li><strong>Social:</strong> Organizing group mealtimes, arranging outings to local cafes, or facilitating visits from local schools.</li>
+        </ul>
+
+        <h4>Early Years Settings (e.g., Nurseries, Playgroups)</h4>
+        <ul>
+            <li><strong>Physical:</strong> Providing healthy snacks, organizing outdoor playground time for gross motor skills, enforcing nap times.</li>
+            <li><strong>Intellectual:</strong> Providing educational toys, reading stories, teaching colors and numbers.</li>
+            <li><strong>Emotional:</strong> Using a 'Key Worker' system so the child forms a secure attachment, offering praise and stickers for good behavior.</li>
+            <li><strong>Social:</strong> Setting up role-play areas (like a pretend kitchen) to encourage children to play together and communicate.</li>
+        </ul>
+    </div>
+
+    <button class="accordion">4. Impact of Physical Health & Ill-Health on Psychological Well-Being</button>
+    <div class="panel">
+        <h4>Positive Impacts of Good Physical Health:</h4>
+        <ul>
+            <li><strong>Self-Concept & Esteem:</strong> Having high self-esteem and a positive self-concept because the individual looks and feels well.</li>
+            <li><strong>Autonomy:</strong> Experiencing a strong sense of autonomy and feeling in control of life due to positive lifestyle choices.</li>
+            <li><strong>Emotions:</strong> Experiencing positive emotions like happiness, optimism, and freedom from worry or anxiety.</li>
+            <li><strong>Coping:</strong> Feeling confident and mentally resilient enough to cope with the demands of daily life.</li>
+        </ul>
+
+        <h4>Negative Impacts of Physical Ill-Health:</h4>
+        <ul>
+            <li><strong>Self-Concept & Esteem:</strong> Low self-esteem and a negative body image (e.g., due to hair loss from treatment or weight changes).</li>
+            <li><strong>Loss of Autonomy:</strong> Feeling helpless, dependent on others for care, and frustrated by a lack of control over their own body.</li>
+            <li><strong>Emotions:</strong> Experiencing depression, fear about the future, anger ("why me?"), and severe anxiety.</li>
+            <li><strong>Coping:</strong> Feeling overwhelmed, stressed, and unable to manage daily tasks.</li>
+        </ul>
+
+        <h4>The Exceptions (Evaluation Points):</h4>
+        <p>There is not <em>always</em> a direct relationship between physical health and psychological well-being. <br>
+        <strong>Physically Healthy but Psychologically Unwell:</strong> A person might be physically fit but suffer from depression, severe stress, or low self-esteem due to bereavement, relationship breakdowns, bullying, or extreme poverty.<br>
+        <strong>Physically Ill but Psychologically Well:</strong> A person with a chronic physical illness or disability may have excellent psychological well-being if they have a strong family support network, a positive resilient personality, and have accepted their condition.</p>
+    </div>
+
+    <button class="accordion">5. Detailed Effects of Ill-Health on Individuals and Families</button>
+    <div class="panel">
+        <p><em>Exam Tip: When writing about these impacts, always try to explain the "knock-on" effect. For example, don't just say "they lose income." Explain that losing income leads to stress, which impacts psychological well-being and strains family relationships.</em></p>
+        
+        <h4>1. Impact on Education</h4>
+        <ul>
+            <li><strong>Individual:</strong> Frequent hospital appointments or severe pain may cause the individual to miss days/weeks of school, causing them to fall behind on coursework. Medication might make them drowsy, reducing their concentration and ability to learn, potentially leading to lower exam grades or dropping out of higher education.</li>
+            <li><strong>Family:</strong> If a parent is ill, a teenager may be forced into a 'young carer' role, meaning they don't have time to complete homework or they miss school to look after younger siblings. Healthy siblings might also suffer academically because parents are too distracted by hospital visits to help with revision or attend parents' evenings.</li>
+        </ul>
+
+        <h4>2. Impact on Employment</h4>
+        <ul>
+            <li><strong>Individual:</strong> In the short term, they may have to take extended sick leave. In the long term, they may be forced to reduce their working hours (go part-time), step down from a stressful promotion, or retire early on medical grounds. They may also face discrimination or feel unsupported in the workplace.</li>
+            <li><strong>Family:</strong> A spouse, partner, or adult child may have to heavily reduce their own working hours, or quit their job entirely, to become a full-time carer for the sick individual. This halts their own career progression.</li>
+        </ul>
+
+        <h4>3. Impact on Income</h4>
+        <ul>
+            <li><strong>Individual:</strong> Being unable to work leads to a significant drop in wages. They may become reliant on statutory sick pay or disability benefits, which are often lower than a full-time salary, leading to a general drop in living standards.</li>
+            <li><strong>Family:</strong> The household faces a "double penalty." Not only is the sick person's income lost, but the family also faces massive <em>increased</em> costs. They have to pay for regular hospital transport/parking, specialist diets, private physiotherapy, or adapting the home (e.g., installing a stairlift). They may also have to keep the heating on constantly for a sick relative, leading to severe debt and financial anxiety for the whole family.</li>
+        </ul>
+
+        <h4>4. Impact on Leisure Activities</h4>
+        <ul>
+            <li><strong>Individual:</strong> Physical limitations (pain, wheelchair use, severe fatigue) may make it physically impossible to continue playing sports or engaging in active hobbies. A drop in income also means they may no longer be able to afford gym memberships, cinema trips, or holidays.</li>
+            <li><strong>Family:</strong> The family's leisure time is often entirely consumed by caregiving duties, administering medication, or visiting the hospital. Family holidays may be cancelled due to a lack of funds or because the sick relative cannot travel, leading to frustration and burnout for the carers.</li>
+        </ul>
+
+        <h4>5. Impact on Relationships</h4>
+        <ul>
+            <li><strong>Individual:</strong> Being unable to attend social events or work means the individual may lose touch with friends and colleagues, leading to severe social isolation. They may feel like a "burden" to their partner, changing the dynamic of a romantic relationship into a patient-carer relationship, which can severely damage intimacy.</li>
+            <li><strong>Family (Negative):</strong> High stress levels, exhaustion from caring, and financial worries frequently cause arguments and strain marital relationships. Siblings of a sick child might feel neglected and resentful because all the parents' attention is focused on the ill child.</li>
+            <li><strong>Family (Positive):</strong> Conversely, facing a severe illness together can cause a family to bond. They may become emotionally closer, more supportive, and develop a stronger appreciation for one another through shared adversity.</li>
+        </ul>
+    </div>
+
+    <div class="exam-area">
+        <h2>High-Value Question Practice Area</h2>
+        <p>Select a past-paper question from the dropdown below, type your answer, and generate a custom AI prompt for instant CCEA-style feedback.</p>
+        
+        <label for="questionSelect"><strong>Select a Question:</strong></label>
+        <select id="questionSelect" onchange="updateQuestionHint()">
+            <option value="q1">Discuss how an individual’s ill-health might impact on her income, leisure activities and relationships. (9 marks)</option>
+            <option value="q2">Evaluate the impact of good physical health and ill-health on an individual's psychological well-being. (12 marks)</option>
+            <option value="q3">Assess the potential effects of a father's long-term ill-health on his family's income, employment, and relationships. (12 marks)</option>
+            <option value="q4">Discuss how staff in a residential home for older people can meet the physical, intellectual, emotional and social needs of their service users. (12 marks)</option>
+        </select>
+
+        <div id="hintBox" class="hint-box">
+            <strong>Exam Tip:</strong> For this 9-mark 'Discuss' question, write 3 distinct paragraphs. Use the PEE (Point, Evidence, Explanation) structure. Ensure you cover Income, Leisure, AND Relationships to reach Level 3.
+        </div>
+        
+        <textarea id="studentAnswer" rows="14" placeholder="Type your structured answer here..."></textarea>
+        
+        <button onclick="generateAIPrompt()">Generate Marking Rubric & Feedback Prompt</button>
+
+        <div id="promptOutputBox">
+            <h3>Step 2: Get Your Feedback!</h3>
+            <p>Your answer is ready to be marked. Click "Copy to Clipboard", then paste it into ChatGPT, Gemini, or Claude to get your instant CCEA-style feedback.</p>
+            <textarea id="generatedPrompt" readonly></textarea>
+            <button class="copy-btn" onclick="copyPrompt()">Copy to Clipboard</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Accordion Logic
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+        });
+    }
+
+    // Update Hints based on Dropdown Selection
+    function updateQuestionHint() {
+        var q = document.getElementById("questionSelect").value;
+        var hintBox = document.getElementById("hintBox");
+        if (q === "q1") {
+            hintBox.innerHTML = "<strong>Exam Tip:</strong> For this 9-mark 'Discuss' question, write 3 distinct paragraphs. Use the PEE structure. Ensure you cover Income, Leisure, AND Relationships to reach Level 3.";
+        } else if (q === "q2") {
+            hintBox.innerHTML = "<strong>Exam Tip:</strong> For this 12-mark 'Evaluate' question, you must look at BOTH sides. Discuss positive impacts, negative impacts, AND exceptions (e.g., physically well but stressed due to work).";
+        } else if (q === "q3") {
+            hintBox.innerHTML = "<strong>Exam Tip:</strong> For this 12-mark 'Assess' question, focus specifically on the FAMILY, not just the father. How does the partner's employment change? How do family relationships suffer or bond?";
+        } else if (q === "q4") {
+            hintBox.innerHTML = "<strong>Exam Tip:</strong> For this 12-mark 'Discuss' question, you must give specific examples of care practices for ALL FOUR needs (PIES) within the context of a residential home for older people.";
+        }
+    }
+
+    // Prompt Generation Logic
+    function generateAIPrompt() {
+        var studentText = document.getElementById("studentAnswer").value;
+        var selectedQuestion = document.getElementById("questionSelect");
+        var questionText = selectedQuestion.options[selectedQuestion.selectedIndex].text;
+        var qValue = selectedQuestion.value;
+
+        if (studentText.trim() === "") {
+            alert("Please type an answer before generating feedback!");
+            return;
+        }
+
+        var markScheme = "";
+        if (qValue === "q1") {
+            markScheme = `- Level 1 (1-3): Adequate. - Level 2 (4-6): Competent. - Level 3 (7-9): Highly Competent. MUST discuss all three areas (income, leisure, relationships).`;
+        } else if (qValue === "q2") {
+            markScheme = `- Level 1 (1-4): Adequate. - Level 2 (5-8): Competent. - Level 3 (9-12): Highly Competent. MUST address positive impacts, negative impacts, AND exceptions (where physical and psychological health do not align).`;
+        } else if (qValue === "q3") {
+            markScheme = `- Level 1 (1-4): Adequate. - Level 2 (5-8): Competent. - Level 3 (9-12): Highly Competent. MUST explicitly discuss the effects on the FAMILY (e.g., partner reducing work hours, family poverty, strain on marriage/kids) across income, employment, and relationships.`;
+        } else if (qValue === "q4") {
+            markScheme = `- Level 1 (1-4): Adequate. - Level 2 (5-8): Competent. - Level 3 (9-12): Highly Competent. MUST cover all 4 needs (Physical, Intellectual, Emotional, Social) with specific examples suited to a residential home setting.`;
+        }
+
+        var promptTemplate = `Act as an expert CCEA GCE Health and Social Care examiner marking Year 13 papers.
+Please mark the following student answer to this question:
+"${questionText}"
+
+### Marking Instructions & CCEA Mark Scheme:
+${markScheme}
+Check heavily for the PEE (Point, Evidence, Explanation) or Cause and Effect structure in their paragraphs. Quality of Written Communication (QWC) is heavily assessed for 12-mark questions.
+
+### Student Answer:
+"""
+${studentText}
+"""
+
+### Feedback Required:
+1. What went well (Highlight strong PEE structures and correct use of terminology).
+2. Even better if (Identify missing explanations, missing impacts, or missing sides of the evaluation).
+3. An estimated Mark based on the CCEA Levelled banding with a brief justification.`;
+
+        document.getElementById("generatedPrompt").value = promptTemplate;
+        document.getElementById("promptOutputBox").style.display = "block";
+    }
+
+    function copyPrompt() {
+        var copyText = document.getElementById("generatedPrompt");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value);
+        alert("Prompt copied! Now paste this into ChatGPT, Gemini, or Claude.");
+    }
+</script>
+
+</body>
+</html>
