@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCEA Unit 3: Organisations Revision Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background-color: #fcfaf8; color: #292524; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        .chart-container { position: relative; width: 100%; max-width: 650px; margin-left: auto; margin-right: auto; height: 380px; }
+        @media (min-width: 768px) { .chart-container { height: 450px; } }
+        .sector-btn.active { background-color: #0f766e; color: white; border-color: #0f766e; transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        .sector-btn:not(.active) { background-color: #ffffff; color: #0f766e; border-color: #ccfbf1; }
+        .fade-in { animation: fadeIn 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-teal-800 text-white py-12 px-6 shadow-md">
+        <div class="max-w-5xl mx-auto text-center md:text-left">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Topic 4: Roles of Organisations</h1>
+            <p class="text-xl text-teal-100 max-w-3xl">Comprehensive Revision Hub for CCEA Unit 3. Master the highly specific roles of Statutory, Voluntary, Private Organisations, Private Practitioners, and International bodies.</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 mt-10 space-y-12">
+
+        <section class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 border-t-4 border-t-blue-500">
+                <h2 class="text-xl font-bold text-stone-800 mb-2">Statutory Sector</h2>
+                <p class="text-stone-600 text-sm">Services that are paid for and provided by the government (e.g., NHS, school nursing, social services). They are legally obligated to provide free-at-the-point-of-use care based on public need.</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 border-t-4 border-t-emerald-500">
+                <h2 class="text-xl font-bold text-stone-800 mb-2">Voluntary Sector</h2>
+                <p class="text-stone-600 text-sm">Services provided by non-profit making organisations that are often registered charities. They rely heavily on public donations, fundraising, and volunteers to operate and fill gaps in statutory care.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 border-t-4 border-t-amber-500">
+                <h2 class="text-xl font-bold text-stone-800 mb-2">Private Sector</h2>
+                <p class="text-stone-600 text-sm">Organisations and independent practitioners that are run as a business in order to make a profit. Service users generally pay directly out-of-pocket, via private health insurance, or via government subcontracts.</p>
+            </div>
+        </section>
+
+        <section id="explorer">
+            <h2 class="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2">
+                <span class="p-2 bg-teal-100 rounded-lg text-teal-700">🏢</span> Organisational Deep Dive
+            </h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+                <button onclick="selectSector('statutory')" id="btn-statutory" class="sector-btn active px-3 py-3 rounded-xl border-2 text-center font-bold text-xs md:text-sm transition-all">Statutory (NI)</button>
+                <button onclick="selectSector('voluntary')" id="btn-voluntary" class="sector-btn px-3 py-3 rounded-xl border-2 text-center font-bold text-xs md:text-sm transition-all">Voluntary (Charities)</button>
+                <button onclick="selectSector('private')" id="btn-private" class="sector-btn px-3 py-3 rounded-xl border-2 text-center font-bold text-xs md:text-sm transition-all">Private Orgs</button>
+                <button onclick="selectSector('practitioners')" id="btn-practitioners" class="sector-btn px-3 py-3 rounded-xl border-2 text-center font-bold text-xs md:text-sm transition-all">Private Practitioners</button>
+                <button onclick="selectSector('who')" id="btn-who" class="sector-btn px-3 py-3 rounded-xl border-2 text-center font-bold text-xs md:text-sm transition-all">World Health Org</button>
+            </div>
+
+            <div id="sector-content" class="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden fade-in">
+                <div class="p-6 md:p-8 border-b border-stone-100 bg-teal-50/30">
+                    <span id="content-label" class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Label</span>
+                    <h3 id="content-title" class="text-3xl font-extrabold text-stone-800 mb-3">Title</h3>
+                    <p id="content-desc" class="text-lg text-stone-600 leading-relaxed max-w-4xl"></p>
+                </div>
+
+                <div class="p-6 md:p-8 grid md:grid-cols-2 gap-10">
+                    <div>
+                        <h4 class="text-lg font-bold text-teal-800 mb-4 border-b border-teal-100 pb-2">
+                            Key Organisations / Examples
+                        </h4>
+                        <ul id="content-examples" class="space-y-4"></ul>
+                    </div>
+                    <div>
+                        <h4 id="roles-heading" class="text-lg font-bold text-teal-800 mb-4 border-b border-teal-100 pb-2">
+                            How They Contribute to Health (Exam Points)
+                        </h4>
+                        <ul id="content-roles" class="space-y-4"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 hidden md:block">
+            <h2 class="text-2xl font-bold text-stone-800 mb-6">Macro-Sector Characteristics Matrix</h2>
+            <div class="chart-container">
+                <canvas id="sectorRadarChart"></canvas>
+            </div>
+            <p class="text-center text-sm text-stone-500 mt-4 italic">Comparison of the main three sectors based on Government Control, Profit Motive, Cost to Service User, Reliance on Volunteers, and Reach.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 md:p-8">
+            <h2 class="text-2xl font-bold text-stone-800 mb-4 flex items-center gap-2">
+                <span class="p-2 bg-orange-100 rounded-lg text-orange-700">✍️</span> High-Value Question Practice Area
+            </h2>
+            <p class="text-stone-600 mb-6">Select a past-paper question from the dropdown below, type your answer, and generate a custom AI prompt for instant CCEA-style feedback.</p>
+            
+            <label for="questionSelect" class="font-bold text-stone-800 block mb-2">Select a Question:</label>
+            <select id="questionSelect" onchange="updateQuestionHint()" class="w-full p-3 text-base mb-6 border-2 border-stone-200 rounded-xl focus:outline-none focus:border-teal-600 font-sans bg-stone-50">
+                <option value="q_voluntary">Discuss how voluntary organisations contribute to health and well-being for people in Northern Ireland. (12 marks)</option>
+                <option value="q_private_analyse">Analyse how pharmacies, drug companies and private nursing homes contribute to health and well-being. (12 marks)</option>
+                <option value="q_trusts">Explain three ways Health and Social Care Trusts contribute to the health and well-being of the populations they serve. (6 marks)</option>
+                <option value="q_practitioners">Discuss how private practitioners contribute to the health and well-being of their patients. (6 marks)</option>
+                <option value="q_doh">Explain two ways the Department of Health (DoH) contributes to health and well-being. (4 marks)</option>
+                <option value="q_holistic">Describe how a holistic therapist contributes to health and well-being. (3 marks)</option>
+            </select>
+
+            <div id="hintBox" class="bg-orange-50 p-4 border-l-4 border-orange-500 mb-6 rounded-r-xl italic text-stone-700 text-sm">
+                <strong>Exam Tip:</strong> For this 12-mark question, use specific examples of charities in NI (e.g., Age NI, Marie Curie, ChildLine). Discuss how they provide direct support, campaign for rights, and fill gaps in statutory services.
+            </div>
+            
+            <textarea id="studentAnswer" rows="10" class="w-full p-4 border-2 border-stone-200 rounded-xl text-base resize-y focus:outline-none focus:border-teal-600 font-sans mb-4" placeholder="Type your structured answer here..."></textarea>
+            
+            <button onclick="generateAIPrompt()" class="bg-teal-700 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-xl transition-all shadow-sm w-full md:w-auto">Generate Marking Rubric & Feedback Prompt</button>
+
+            <div id="promptOutputBox" class="hidden bg-amber-50 p-5 border-l-4 border-amber-500 mt-6 rounded-r-xl">
+                <h3 class="text-lg font-bold text-amber-900 mb-2">Step 2: Get Your Feedback!</h3>
+                <p class="text-sm text-amber-800 mb-4">Your answer is ready to be marked. Click "Copy to Clipboard", then paste it into an AI tool (like ChatGPT or Gemini) to get instant CCEA-style feedback.</p>
+                <textarea id="generatedPrompt" readonly class="w-full h-64 p-3 font-mono text-sm border border-amber-200 rounded-lg bg-white mb-3 text-stone-700 focus:outline-none"></textarea>
+                <button onclick="copyPrompt()" class="bg-stone-800 hover:bg-stone-700 text-white font-bold py-2 px-4 rounded-lg transition-all text-sm">Copy to Clipboard</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // COMPREHENSIVE DATA FOR SECTORS
+        const sectorData = {
+            statutory: {
+                title: "Statutory Organisations (NI)", label: "Government Funded", labelColor: "bg-blue-100 text-blue-800",
+                desc: "Organisations established by law to provide essential health and social care services to the population. In Northern Ireland, this structure ensures free-at-the-point-of-use care for citizens across hospitals and the community.",
+                examples: [
+                    "<strong>Department of Health (DoH):</strong> The overarching government department in Northern Ireland holding ultimate responsibility for public health funding and legislation.",
+                    "<strong>Public Health Agency (PHA):</strong> The agency solely dedicated to health protection and major health improvement campaigns.",
+                    "<strong>Health and Social Care (HSC) Trusts:</strong> Five regional trusts (Belfast, South Eastern, Western, Southern, Northern) that manage staff, control local budgets, and actually deliver the services to the public."
+                ],
+                roles: [
+                    "<strong>DoH - Policy & Strategy:</strong> Introduces wide-reaching strategies relevant to health and social wellbeing (e.g., developing the 'Transforming your Care' strategy).",
+                    "<strong>DoH - Budgets & Monitoring:</strong> Develops appropriate spending budgets for the HSC Trusts. It also monitors the overall health of the NI population by looking at trends in diseases (e.g., tracking the numbers diagnosed with HIV or Asthma).",
+                    "<strong>PHA - Health Promotion:</strong> Designs and runs major mass-media public health campaigns (e.g., 'Care in the Sun' or 'Choose to Live Better') to educate the public and prevent illness.",
+                    "<strong>PHA - Health Protection:</strong> Protects the population against infectious diseases and environmental hazards by managing regional vaccination programmes, coordinating national screening programmes, and responding to public health emergencies.",
+                    "<strong>HSC Trusts - Direct Care Delivery:</strong> Directly runs hospitals, GP surgeries, and day centres. They employ and manage frontline staff (nurses, social workers).",
+                    "<strong>HSC Trusts - Social Services:</strong> Beyond medical care, Trusts are legally responsible for providing fostering and adoption services, child protection, and arranging domiciliary care (home care) for older people."
+                ]
+            },
+            voluntary: {
+                title: "Voluntary Organisations", label: "Non-Profit / Charities", labelColor: "bg-emerald-100 text-emerald-800",
+                desc: "Non-profit making organisations, often registered charities, set up to help specific vulnerable groups. They rely heavily on public donations, fundraising, and unpaid volunteers. They are completely independent of the government.",
+                examples: [
+                    "<strong>Marie Curie:</strong> End-of-life and palliative care.",
+                    "<strong>Age NI:</strong> Support for older people.",
+                    "<strong>ChildLine (NSPCC):</strong> Helplines and protection for children.",
+                    "<strong>Simon Community:</strong> Homelessness support.",
+                    "<strong>Mencap:</strong> Learning disability support.",
+                    "<strong>Praxis Care:</strong> Mental health and learning disability care.",
+                    "<strong>NI Chest Heart and Stroke (NICHS):</strong> Cardiovascular illness support."
+                ],
+                roles: [
+                    "<strong>Marie Curie:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Delivers specialist palliative nursing care at home or in hospices to manage physical pain.</li><li>Offers professional bereavement counselling and emotional support for grieving families.</li><li>Provides overnight 'sitters' so exhausted family carers can get a full night's sleep.</li><li>Funds clinical research into terminal illnesses to improve future end-of-life care.</li></ul>",
+                    "<strong>Age NI:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Runs local day centres that provide social stimulation and combat isolation.</li><li>Operates an advice helpline to help older people navigate pensions and housing rights.</li><li>Provides a 'Check in and Chat' telephone service offering ongoing emotional support.</li><li>Campaigns to influence government policy on issues like age discrimination.</li></ul>",
+                    "<strong>ChildLine (NSPCC):</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Operates a free, confidential 24/7 telephone helpline for children in distress.</li><li>Facilitates 1-to-1 online counselling chats for children experiencing abuse or bullying.</li><li>Hosts moderated message boards where children can find peer-to-peer social support.</li><li>Educates children on their legal rights and how to stay safe online.</li></ul>",
+                    "<strong>Simon Community:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Manages emergency temporary accommodation and hostels for homeless individuals.</li><li>Runs a 24/7 homelessness prevention helpline for those at immediate risk of eviction.</li><li>Assigns support workers to teach clients independent living and budgeting skills.</li><li>Connects clients to vital addiction and mental health recovery services.</li></ul>",
+                    "<strong>Mencap:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Delivers employment services to help individuals with learning disabilities secure and keep jobs.</li><li>Manages supported living services so clients can live independently in the community.</li><li>Organises local social groups, sports, and activities to help members build friendships.</li><li>Lobbies the government to tackle stigma and ensure equal rights for learning disabilities.</li></ul>",
+                    "<strong>Praxis Care:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Provides specialist supported living for adults with severe mental health issues.</li><li>Runs befriending services to significantly reduce social isolation for vulnerable adults.</li><li>Offers 'floating support' where staff visit individuals at home to assist with daily tasks.</li><li>Operates day care drop-in centres to provide structure and routine for service users.</li></ul>",
+                    "<strong>NI Chest Heart and Stroke:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Facilitates physical rehabilitation and support groups for stroke survivors.</li><li>Delivers health promotion and education programmes in schools and workplaces.</li><li>Funds local medical research into the prevention and treatment of cardiovascular illnesses.</li><li>Provides emotional support networks and practical advice for families and carers.</li></ul>"
+                ]
+            },
+            private: {
+                title: "Private Organisations", label: "For-Profit Businesses", labelColor: "bg-amber-100 text-amber-800",
+                desc: "Large-scale organisations run as businesses with the primary aim of making a profit by providing health and social care products, facilities, or home services.",
+                examples: [
+                    "<strong>Private Nursing Homes:</strong> Residential facilities providing 24/7 medical and social care.",
+                    "<strong>Home Care Providers:</strong> Private agencies that send paid carers into the community.",
+                    "<strong>Pharmacies:</strong> Commercial shops (like Boots or local chemists) that dispense drugs.",
+                    "<strong>Drug Companies:</strong> Massive global corporations (e.g., Pfizer) that research and manufacture medicine.",
+                    "<strong>Holistic Therapists:</strong> Offer alternative, non-clinical treatments like reflexology, aromatherapy, and massage."
+                ],
+                roles: [
+                    "<strong>Private Nursing Homes:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Provide 24/7 specialist medical care and supervision (e.g., dementia care units) to ensure physical safety.</li><li>Organise structured social activities (e.g., bingo, painting, day trips) to combat isolation and promote social well-being.</li><li>Assist residents with daily personal hygiene and feeding, maintaining their physical health and dignity.</li><li>Offer a safe, highly secure environment that drastically reduces anxiety for both the resident and their family.</li></ul>",
+                    "<strong>Home Care Providers:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Deliver 'good morning' starts, assisting clients with washing, dressing, and breakfast to promote physical well-being.</li><li>Manage and administer daily medication schedules to prevent missed doses or dangerous overdoses.</li><li>Perform vital domestic duties like shopping, meal preparation, and laundry to ensure a safe, sanitary home environment.</li><li>Provide overnight 'sleeper' support or 24-hour live-in care, granting essential respite to family carers and reducing their stress.</li></ul>",
+                    "<strong>Pharmacies:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Safely dispense prescribed medications and provide expert face-to-face advice on correct dosages and side effects.</li><li>Offer 'Pharmacy First' consultations for minor ailments, freeing up GP appointments and providing rapid relief.</li><li>Run community health promotion services, such as dedicated smoking cessation clinics or blood pressure monitoring.</li><li>Administer seasonal vaccines (e.g., winter flu jabs or COVID boosters) to protect the community from infectious diseases.</li></ul>",
+                    "<strong>Drug Companies:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Invest billions heavily in Research and Development (R&D) to discover cures and treatments for emerging or chronic diseases.</li><li>Manufacture life-saving vaccines to prevent the spread of global and local infectious diseases.</li><li>Mass-produce daily maintenance medications (like insulin or painkillers) essential for managing chronic physical conditions.</li><li>Conduct highly rigorous clinical trials to ensure new medications are scientifically safe and effective before public use.</li></ul>",
+                    "<strong>Holistic Therapists:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Treat the 'whole person' (mind, body, spirit) rather than just focusing exclusively on an isolated medical symptom.</li><li>Use alternative treatments, such as reflexology and aromatherapy, to promote deep emotional relaxation and balance.</li><li>Provide therapeutic massage to physically relieve deep muscle tension and alleviate chronic pain without medication.</li><li>Create a calming, unhurried environment that allows clients to decompress, severely reducing psychological stress and anxiety.</li></ul>"
+                ]
+            },
+            practitioners: {
+                title: "Private Practitioners", label: "Independent Professionals", labelColor: "bg-rose-100 text-rose-800",
+                desc: "Independent, fully qualified healthcare professionals operating their own private clinics. Patients pay directly out-of-pocket or via private health insurance for their services.",
+                examples: [
+                    "<strong>Private GPs:</strong> General practitioners offering private consultations outside the NHS.",
+                    "<strong>Private Dentists:</strong> Offering routine and cosmetic dental procedures.",
+                    "<strong>Private Physiotherapists:</strong> Offering immediate physical rehabilitation.",
+                    "<strong>Private Counsellors / Psychologists:</strong> Offering immediate mental health support."
+                ],
+                roles: [
+                    "<strong>Private GPs:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Bypass NHS waiting lists entirely, providing rapid access to consultations and much faster physical diagnosis.</li><li>Offer significantly longer, unhurried appointment times (e.g., 20-30 mins) allowing for comprehensive health discussions.</li><li>Provide immediate referrals to private specialists or fast-tracked diagnostic scans (MRI/X-rays) to rapidly reduce patient anxiety.</li><li>Offer highly flexible appointment scheduling, including evenings and weekends, making access easier for working individuals.</li></ul>",
+                    "<strong>Private Dentists:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Perform routine oral health check-ups and preventative hygiene care to maintain long-term physical dental health.</li><li>Offer elective or cosmetic procedures (like teeth whitening or veneers) that are unavailable on the NHS, massively boosting self-esteem.</li><li>Use advanced restorative treatments (like specialist dental implants) to improve a patient's ability to eat and speak comfortably.</li><li>Provide immediate, out-of-hours emergency dental care to rapidly relieve severe physical pain.</li></ul>",
+                    "<strong>Private Physiotherapists:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Conduct immediate musculoskeletal assessments without the need for a prior GP referral, speeding up the recovery process.</li><li>Develop highly tailored, intensive exercise and rehabilitation plans to fully restore physical mobility after an injury or surgery.</li><li>Perform hands-on manual therapy and advanced treatments (like acupuncture or ultrasound) to alleviate chronic joint or muscle pain.</li><li>Work closely with athletes to provide sports-specific injury prevention advice and performance enhancement.</li></ul>",
+                    "<strong>Private Counsellors & Psychologists:</strong><ul class='list-disc pl-5 mt-2 space-y-1 mb-2'><li>Provide immediate access to vital talking therapies, bypassing the often severe NHS mental health waiting lists.</li><li>Deliver highly specialized psychological interventions (like CBT or EMDR) tailored precisely to treat trauma, anxiety, or clinical depression.</li><li>Offer a completely confidential, non-judgmental space for individuals to process grief and loss, significantly boosting emotional resilience.</li><li>Allow patients the autonomy to choose a therapist they feel comfortable with and offer open-ended, long-term treatment plans.</li></ul>"
+                ]
+            },
+            who: {
+                title: "World Health Organisation (WHO)", label: "International / Global", labelColor: "bg-purple-100 text-purple-800",
+                desc: "An international organisation attached to the United Nations, concerned with public health on a global scale. It provides advice, guidance, and practical support to countries worldwide.",
+                examples: [
+                    "<strong>Global Headquarters:</strong> Based in Geneva, Switzerland, coordinating responses across 194 member states.",
+                    "<strong>Specialist Teams:</strong> Teams of global experts and scientists focusing on specific issues like Malaria eradication, HIV/AIDS prevention, or global vaccination programs."
+                ],
+                roles: [
+                    "<strong>Global Monitoring:</strong> Monitoring global health trends and coordinating rapid international responses to pandemics or severe disease outbreaks (e.g., COVID-19 or Ebola).",
+                    "<strong>Setting Standards:</strong> Providing universal, scientific guidelines for water quality, air pollution, and safe medical practices that all countries should strive to meet.",
+                    "<strong>Advice & Guidance:</strong> Advising national governments on how to structure their health policies, improve sanitation, and effectively improve their citizens' physical well-being.",
+                    "<strong>Eradication Campaigns:</strong> Leading massive global vaccination drives (e.g., Polio) to completely eradicate deadly diseases from developing nations."
+                ]
+            }
+        };
+
+        function selectSector(key) {
+            document.querySelectorAll('.sector-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${key}`).classList.add('active');
+            
+            const data = sectorData[key];
+            const content = document.getElementById('sector-content');
+            const rolesHeading = document.getElementById('roles-heading');
+            
+            // Dynamic Heading based on tab selection
+            if(key === 'practitioners') {
+                rolesHeading.innerHTML = "Their Specific Roles & Duties";
+            } else {
+                rolesHeading.innerHTML = "How They Contribute to Health (Exam Points)";
+            }
+            
+            // Apply Fade Effect
+            content.classList.remove('fade-in');
+            void content.offsetWidth; // Trigger reflow
+            content.classList.add('fade-in');
+
+            document.getElementById('content-title').textContent = data.title;
+            const labelEl = document.getElementById('content-label');
+            labelEl.textContent = data.label;
+            labelEl.className = `inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 ${data.labelColor}`;
+            document.getElementById('content-desc').innerHTML = data.desc;
+            
+            const updateList = (id, items) => {
+                const list = document.getElementById(id);
+                list.innerHTML = items.map(t => `<li class="flex items-start gap-3 text-stone-600 text-sm">
+                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-stone-400 flex-shrink-0"></span>
+                    <div class="flex-1">${t}</div>
+                </li>`).join('');
+            };
+            updateList('content-examples', data.examples);
+            updateList('content-roles', data.roles);
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('sectorRadarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Government Control', 'Profit Motive', 'Cost to Service User', 'Reliance on Volunteers', 'Global/National Reach'],
+                    datasets: [
+                        { label: 'Statutory', data: [10, 0, 1, 1, 8], borderColor: '#1d4ed8', backgroundColor: 'rgba(29, 78, 216, 0.1)' },
+                        { label: 'Voluntary', data: [2, 0, 2, 10, 6], borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)' },
+                        { label: 'Private Sector', data: [3, 10, 10, 0, 4], borderColor: '#f59e0b', backgroundColor: 'rgba(245, 158, 11, 0.1)' }
+                    ]
+                },
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false, 
+                    plugins: { legend: { position: 'bottom' } },
+                    scales: { r: { min: 0, max: 10, ticks: { display: false } } }
+                }
+            });
+        }
+
+        // EXAM PRACTICE LOGIC
+        function updateQuestionHint() {
+            var q = document.getElementById("questionSelect").value;
+            var hintBox = document.getElementById("hintBox");
+            
+            var hints = {
+                "q_voluntary": "<strong>Exam Tip:</strong> For this 12-mark question, use specific examples of charities in NI (e.g., Age NI, Marie Curie, ChildLine). Discuss how they provide direct support, campaign for rights, and fill gaps in statutory services.",
+                "q_private_analyse": "<strong>Exam Tip:</strong> Write 3 paragraphs. 1. Pharmacies (dispensing/advice). 2. Drug companies (research/creating cures). 3. Private nursing homes (24/7 care/social stimulation). Explain how each helps physical, psychological or social health.",
+                "q_trusts": "<strong>Exam Tip:</strong> For 6 marks, state THREE distinct points. Look at direct service provision (e.g., running hospitals, managing social workers, providing domiciliary care, fostering/adoption). Ensure you EXPLAIN the points.",
+                "q_practitioners": "<strong>Exam Tip:</strong> Discuss 3 distinct roles. Focus on what they actively do: diagnosing/prescribing (GPs), performing cosmetic/routine work (Dentists), or manual rehabilitation therapy (Physios).",
+                "q_doh": "<strong>Exam Tip:</strong> For 4 marks, state TWO distinct points. (e.g., Point 1: Introduces policy/strategy. Point 2: Allocates budgets to HSC Trusts). Ensure you EXPLAIN the points.",
+                "q_holistic": "<strong>Exam Tip:</strong> Focus on treating the 'whole person'. Mention alternative treatments (reflexology, massage) and link it to reducing stress and improving emotional/psychological well-being."
+            };
+            
+            hintBox.innerHTML = hints[q];
+        }
+
+        function generateAIPrompt() {
+            var studentText = document.getElementById("studentAnswer").value;
+            var selectedQuestion = document.getElementById("questionSelect");
+            var questionText = selectedQuestion.options[selectedQuestion.selectedIndex].text;
+            var qValue = selectedQuestion.value;
+
+            if (studentText.trim() === "") {
+                alert("Please type an answer before generating feedback!");
+                return;
+            }
+
+            var markScheme = "";
+            
+            if (qValue === "q_voluntary") {
+                markScheme = "- Level 3 (9-12 marks): Must name relevant NI voluntary organisations (e.g. Mencap, Age NI, Simon Community). Must discuss specific roles (e.g., advocacy, helplines, support, research) and link to physical, psychological, or social well-being.";
+            } else if (qValue === "q_private_analyse") {
+                markScheme = "- Level 3 (9-12 marks): Must analyse ALL THREE (pharmacies, drug companies, nursing homes). Must show clear understanding of how these commercial entities improve the PIES well-being of service users.";
+            } else if (qValue === "q_trusts") {
+                markScheme = "- 6 Marks Total: [1] mark for identifying a way, [1] mark for explaining it. Must do this THREE times. Look for: Running hospitals/health centres, providing social workers, fostering/adoption services, domiciliary care for older people.";
+            } else if (qValue === "q_practitioners") {
+                markScheme = "- 6 Marks Total: [1] mark for identifying a role, [1] mark for explaining it. Must do this THREE times. Look for specific roles like: bypassing long NHS waiting lists for rapid diagnosis, offering elective/specialist treatments, providing longer/personalised consultations, or offering flexible appointment times.";
+            } else if (qValue === "q_doh") {
+                markScheme = "- 4 Marks Total: [1] mark for identifying a way, [1] mark for explaining it. Must do this TWICE. Look for: Policy/Strategy (Transforming Your Care), Budgets/Funding for trusts, Planning Service Provision, Monitoring Health Trends (HIV).";
+            } else if (qValue === "q_holistic") {
+                markScheme = "- 3 Marks Total: Look for understanding that holistic therapists treat the 'whole person' (not just the symptom). Look for examples (massage, aromatherapy) and a link to reducing stress or promoting relaxation/emotional well-being.";
+            }
+
+            var promptTemplate = `Act as an expert CCEA GCE Health and Social Care examiner marking Year 13 papers.
+Please mark the following student answer to this past-paper question:
+"${questionText}"
+
+### Marking Instructions & CCEA Mark Scheme:
+${markScheme}
+Where applicable, check for PEE (Point, Evidence, Explanation) structure. Quality of Written Communication (QWC) is heavily assessed for 12-mark questions.
+
+### Student Answer:
+"""
+${studentText}
+"""
+
+### Feedback Required:
+1. What went well (Highlight strong points, correct definitions, and good structure).
+2. Even better if (Identify missing explanations or missing organisation types).
+3. An estimated Mark based on the CCEA mark scheme with a brief justification.`;
+
+            document.getElementById("generatedPrompt").value = promptTemplate;
+            document.getElementById("promptOutputBox").classList.remove('hidden');
+        }
+
+        function copyPrompt() {
+            var copyText = document.getElementById("generatedPrompt");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            alert("Prompt copied! Now paste this into ChatGPT, Gemini, or Claude.");
+        }
+
+        window.onload = () => { 
+            selectSector('statutory'); 
+            initChart(); 
+        };
+    </script>
+</body>
+</html>
