@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCEA Unit 3: Health Promotion Revision Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background-color: #fcfaf8; color: #292524; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        .chart-container { position: relative; width: 100%; max-width: 650px; margin-left: auto; margin-right: auto; height: 380px; }
+        @media (min-width: 768px) { .chart-container { height: 450px; } }
+        .strategy-btn.active { background-color: #0f766e; color: white; border-color: #0f766e; transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        .strategy-btn:not(.active) { background-color: #ffffff; color: #0f766e; border-color: #ccfbf1; }
+        .campaign-tab.active { background-color: #0f766e; color: white; border-color: #0f766e; }
+        .campaign-tab:not(.active) { background-color: #f8fafc; color: #0f766e; border-color: #cbd5e1; }
+        .fade-in { animation: fadeIn 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-teal-800 text-white py-12 px-6 shadow-md">
+        <div class="max-w-5xl mx-auto text-center md:text-left">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Topic 3: Health Promotion</h1>
+            <p class="text-xl text-teal-100 max-w-3xl">Comprehensive Revision Hub for CCEA Unit 3. Master Health Promotion Approaches, Personal Responsibility, and PHA Campaigns.</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 mt-10 space-y-12">
+
+        <section class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6">
+                <h2 class="text-xl font-bold text-stone-800 mb-4 flex items-center gap-2">
+                    <span class="p-2 bg-teal-100 rounded-lg text-teal-700">📖</span> Key Terminology
+                </h2>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-teal-500 pl-4">
+                        <p class="font-bold text-teal-800">Health Promotion</p>
+                        <p class="text-stone-600 text-sm italic">"The process of enabling people to increase control over, and to improve, their health." (World Health Organisation)</p>
+                    </div>
+                    <div class="border-l-4 border-teal-500 pl-4">
+                        <p class="font-bold text-teal-800">Health Education</p>
+                        <p class="text-stone-600 text-sm">Communication activities aimed at enhancing positive health and preventing ill-health through improving knowledge and developing life skills.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-teal-900 text-white rounded-2xl shadow-lg p-6 flex flex-col justify-center">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                    <span class="p-2 bg-teal-700 rounded-lg text-teal-200">🎯</span> Core Aims of Campaigns
+                </h2>
+                <ul class="space-y-3 text-teal-50 text-sm">
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong>Preventing Illness:</strong> Intervening before disease occurs to reduce the incidence of illnesses (e.g., anti-smoking campaigns to reduce lung cancer rates).</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong>Promoting Lifestyles:</strong> Encouraging positive daily habits and empowering individuals to take ownership of their exercise and diet.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong>Creating Environments:</strong> Shaping physical and social environments through laws so that the healthy choice becomes the easiest choice.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 md:p-8">
+            <h2 class="text-2xl font-bold text-stone-800 mb-4 flex items-center gap-2">
+                <span class="p-2 bg-teal-100 rounded-lg text-teal-700">👤</span> Taking Personal Responsibility
+            </h2>
+            <p class="text-stone-600 mb-8 max-w-4xl">The CCEA specification requires you to understand how individuals can actively take control of their own physical, psychological, and social well-being through three key areas.</p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 shadow-sm hover:shadow-md transition-all">
+                    <h3 class="text-lg font-bold text-teal-800 mb-3 border-b border-teal-100 pb-2">1. Lifestyle Choices</h3>
+                    <ul class="space-y-3 text-sm text-stone-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-500 mt-1">•</span>
+                            <span><strong>Diet & Exercise:</strong> Choosing a balanced 5-a-day diet to prevent obesity, and committing to 30 minutes of daily exercise to boost cardiovascular health and release endorphins.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-500 mt-1">•</span>
+                            <span><strong>Avoiding Addictions:</strong> Making a conscious choice to quit smoking, avoid illegal drugs, or strictly limit alcohol intake to prevent long-term chronic illnesses (e.g., liver cirrhosis).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-500 mt-1">•</span>
+                            <span><strong>Sleep & Stress Management:</strong> Practising good 'sleep hygiene' and mindfulness techniques to protect psychological well-being and prevent mental burnout.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-500 mt-1">•</span>
+                            <span><strong>Sexual Health:</strong> Taking responsibility by using contraception to prevent sexually transmitted infections (STIs) and unplanned pregnancies.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 shadow-sm hover:shadow-md transition-all">
+                    <h3 class="text-lg font-bold text-teal-800 mb-3 border-b border-teal-100 pb-2">2. Accessing HSC Services</h3>
+                    <ul class="space-y-3 text-sm text-stone-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-500 mt-1">•</span>
+                            <span><strong>Screenings & Check-ups:</strong> Actively attending national screening programmes when invited (e.g., breast, cervical, or bowel cancer) to ensure early diagnosis and better treatment outcomes.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-500 mt-1">•</span>
+                            <span><strong>Primary Care & Pharmacy:</strong> Registering with a GP/dentist and utilising 'Pharmacy First' for minor ailments to get rapid advice and relieve pressure on doctors.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-500 mt-1">•</span>
+                            <span><strong>Preventative Clinics:</strong> Voluntarily referring themselves to smoking cessation clinics, weight-management groups, or ante-natal classes to proactively improve their health.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 shadow-sm hover:shadow-md transition-all">
+                    <h3 class="text-lg font-bold text-teal-800 mb-3 border-b border-teal-100 pb-2">3. Self-Advocacy</h3>
+                    <ul class="space-y-3 text-sm text-stone-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-500 mt-1">•</span>
+                            <span><strong>Speaking Up:</strong> Having the confidence to speak up in healthcare settings, asking doctors clarifying questions to fully understand a diagnosis or medication.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-500 mt-1">•</span>
+                            <span><strong>Informed Choices:</strong> Independently researching treatment options to make autonomous choices, or confidently requesting a second medical opinion if unsatisfied.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-500 mt-1">•</span>
+                            <span><strong>Using Formal Advocates:</strong> Engaging the Patient and Client Council (PCC) or charities (like AgeNI) if they feel their voice isn't being heard.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-teal-500 mt-1">•</span>
+                            <span><strong>Raising Complaints:</strong> Having the confidence to use formal Trust complaints procedures if the care they receive is discriminatory or inadequate.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden">
+            <div class="p-6 md:p-8 bg-teal-800 text-white">
+                <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+                    <span class="p-2 bg-teal-700 rounded-lg text-teal-100">📢</span> Public Health Agency (PHA) Campaigns
+                </h2>
+                <p class="text-teal-100">Exam Case Studies: Select a campaign below to view its objectives and how it gets its message across to the public in Northern Ireland.</p>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 p-6 border-b border-stone-100 bg-stone-50">
+                <button onclick="selectCampaign('sun')" id="camp-sun" class="campaign-tab active px-5 py-2 rounded-full border-2 font-bold text-sm transition-all shadow-sm">Care in the Sun</button>
+                <button onclick="selectCampaign('obesity')" id="camp-obesity" class="campaign-tab px-5 py-2 rounded-full border-2 font-bold text-sm transition-all shadow-sm">Choose to Live Better</button>
+                <button onclick="selectCampaign('cancer')" id="camp-cancer" class="campaign-tab px-5 py-2 rounded-full border-2 font-bold text-sm transition-all shadow-sm">Be Cancer Aware</button>
+            </div>
+
+            <div id="campaign-content" class="p-6 md:p-8 grid md:grid-cols-2 gap-10 fade-in">
+                <div>
+                    <h4 class="text-xl font-bold text-stone-800 mb-4 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-600"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                        Campaign Objectives
+                    </h4>
+                    <p class="text-stone-600 mb-4 text-sm italic">What is the PHA trying to achieve?</p>
+                    <ul id="camp-obj-list" class="space-y-4">
+                        </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold text-stone-800 mb-4 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-600"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        How It Gets The Message Across
+                    </h4>
+                    <p class="text-stone-600 mb-4 text-sm italic">How does the PHA deliver this information?</p>
+                    <ul id="camp-methods-list" class="space-y-4 text-sm text-stone-700">
+                        </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="explorer">
+            <h2 class="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2">
+                <span class="p-2 bg-teal-100 rounded-lg text-teal-700">🔍</span> Health Promotion Approaches
+            </h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+                <button onclick="selectStrategy('medical')" id="btn-medical" class="strategy-btn active px-3 py-3 rounded-xl border-2 text-center font-bold text-sm transition-all">Medical</button>
+                <button onclick="selectStrategy('educational')" id="btn-educational" class="strategy-btn px-3 py-3 rounded-xl border-2 text-center font-bold text-sm transition-all">Educational</button>
+                <button onclick="selectStrategy('behaviour')" id="btn-behaviour" class="strategy-btn px-3 py-3 rounded-xl border-2 text-center font-bold text-sm transition-all">Behaviour Change</button>
+                <button onclick="selectStrategy('societal')" id="btn-societal" class="strategy-btn px-3 py-3 rounded-xl border-2 text-center font-bold text-sm transition-all">Societal Change</button>
+                <button onclick="selectStrategy('fear')" id="btn-fear" class="strategy-btn px-3 py-3 rounded-xl border-2 text-center font-bold text-sm transition-all">Fear Arousal</button>
+            </div>
+
+            <div id="strategy-content" class="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden fade-in">
+                <div class="p-6 md:p-8 border-b border-stone-100 bg-teal-50/30">
+                    <span id="content-label" class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Label</span>
+                    <h3 id="content-title" class="text-3xl font-extrabold text-stone-800 mb-3">Title</h3>
+                    <p id="content-desc" class="text-lg text-stone-600 leading-relaxed max-w-4xl"></p>
+                </div>
+
+                <div class="p-6 md:p-8 grid md:grid-cols-2 gap-10">
+                    <div>
+                        <h4 class="text-lg font-bold text-emerald-700 mb-4 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Strengths (Level 3 Exam Points)
+                        </h4>
+                        <ul id="content-strengths" class="space-y-4"></ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-rose-700 mb-4 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                            Weaknesses (Level 3 Exam Points)
+                        </h4>
+                        <ul id="content-weaknesses" class="space-y-4"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 hidden md:block">
+            <h2 class="text-2xl font-bold text-stone-800 mb-6">Approach Effectiveness Matrix</h2>
+            <div class="chart-container">
+                <canvas id="strategyRadarChart"></canvas>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 md:p-8">
+            <h2 class="text-2xl font-bold text-stone-800 mb-4 flex items-center gap-2">
+                <span class="p-2 bg-orange-100 rounded-lg text-orange-700">✍️</span> High-Value Question Practice Area
+            </h2>
+            <p class="text-stone-600 mb-6">Select a past-paper question from the dropdown below, type your answer, and generate a custom AI prompt for instant CCEA-style feedback.</p>
+            
+            <label for="questionSelect" class="font-bold text-stone-800 block mb-2">Select a Question:</label>
+            <select id="questionSelect" onchange="updateQuestionHint()" class="w-full p-3 text-base mb-6 border-2 border-stone-200 rounded-xl focus:outline-none focus:border-teal-600 font-sans bg-stone-50">
+                <option value="q_camp">Identify the objectives of a current health promotion campaign run by the PHA in Northern Ireland and analyse how it gets its message across. (12 marks)</option>
+                <option value="q_resp">Discuss how individuals can take responsibility for their own health and well-being through lifestyle choices and accessing health and social care services. (12 marks)</option>
+                <option value="q_med">Evaluate the use of the medical approach to health promotion. (12 marks)</option>
+                <option value="q_edu">Evaluate the use of the educational approach to health promotion. (12 marks)</option>
+                <option value="q_beh">Evaluate the use of the behaviour change approach to health promotion. (12 marks)</option>
+                <option value="q_soc">Evaluate the use of the societal/social change approach to health promotion. (12 marks)</option>
+                <option value="q_fear">Evaluate the use of the fear arousal approach to health promotion. (12 marks)</option>
+            </select>
+
+            <div id="hintBox" class="bg-orange-50 p-4 border-l-4 border-orange-500 mb-6 rounded-r-xl italic text-stone-700 text-sm">
+                <strong>Exam Tip:</strong> For this 12-mark campaign question, name the campaign (e.g., Care in the Sun), list 2-3 objectives, and dedicate detailed paragraphs to how it uses mass media, slogans, or leaflets to reach the public.
+            </div>
+            
+            <textarea id="studentAnswer" rows="12" class="w-full p-4 border-2 border-stone-200 rounded-xl text-base resize-y focus:outline-none focus:border-teal-600 font-sans mb-4" placeholder="Type your structured answer here..."></textarea>
+            
+            <button onclick="generateAIPrompt()" class="bg-teal-700 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-xl transition-all shadow-sm w-full md:w-auto">Generate Marking Rubric & Feedback Prompt</button>
+
+            <div id="promptOutputBox" class="hidden bg-amber-50 p-5 border-l-4 border-amber-500 mt-6 rounded-r-xl">
+                <h3 class="text-lg font-bold text-amber-900 mb-2">Step 2: Get Your Feedback!</h3>
+                <p class="text-sm text-amber-800 mb-4">Your answer is ready to be marked. Click "Copy to Clipboard", then paste it into an AI tool (like ChatGPT or Gemini) to get instant CCEA-style feedback.</p>
+                <textarea id="generatedPrompt" readonly class="w-full h-64 p-3 font-mono text-sm border border-amber-200 rounded-lg bg-white mb-3 text-stone-700 focus:outline-none"></textarea>
+                <button onclick="copyPrompt()" class="bg-stone-800 hover:bg-stone-700 text-white font-bold py-2 px-4 rounded-lg transition-all text-sm">Copy to Clipboard</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // DATA FOR CAMPAIGNS
+        const campaignData = {
+            sun: {
+                obj: [
+                    "<strong>Reduce Incidence:</strong> To actively reduce the rising incidence rates of skin cancer (melanoma) among the population of Northern Ireland.",
+                    "<strong>Raise Awareness:</strong> To educate the public on the severe dangers of ultraviolet (UV) radiation, dispelling the myth that you cannot get sunburned on a cloudy day.",
+                    "<strong>Early Detection:</strong> To encourage the public to take responsibility by regularly checking their skin and moles for abnormal changes, prompting early medical advice."
+                ],
+                methods: [
+                    "<strong>Mass Media & Social Media:</strong> Utilises targeted Facebook, Twitter, and TV advertisements during summer months and heatwaves to reach younger demographics.",
+                    "<strong>Educational Materials:</strong> Distributes highly visual leaflets and posters to GP surgeries and pharmacies outlining the 'Solar UV Index' and showing pictures of dangerous moles.",
+                    "<strong>Catchy Slogans:</strong> Uses memorable, actionable guidance such as <em>'Seek shade, Cover up, Wear a hat, Wear sunglasses, Apply sunscreen'</em>.",
+                    "<strong>Partnerships:</strong> Works directly with schools to provide sun-safety lessons, and with construction/farming companies to protect outdoor manual workers from occupational sun hazards."
+                ]
+            },
+            obesity: {
+                obj: [
+                    "<strong>Reduce Incidence:</strong> To reduce the high rates of obesity and overweight adults in NI, thereby reducing the risk of Type 2 diabetes and heart disease.",
+                    "<strong>Raise Awareness of Portions:</strong> To specifically educate the public on how portion sizes have grown over the years and the impact this has on weight gain.",
+                    "<strong>Promote Lifestyle Change:</strong> To empower individuals to make healthier daily choices regarding food intake and physical activity."
+                ],
+                methods: [
+                    "<strong>Mass Media Advertising:</strong> Runs prime-time TV and radio adverts that visually demonstrate how easy it is to over-serve portion sizes at home.",
+                    "<strong>Dedicated Website:</strong> Drives traffic to <em>choosetolivebetter.com</em>, which provides interactive tools, healthy recipes, and advice on portion control.",
+                    "<strong>Catchy Slogans:</strong> Uses non-judgmental, encouraging slogans like <em>'It's still the food you love, just a bit less'</em> to prevent victim-blaming and encourage compliance.",
+                    "<strong>Social Media Recipes:</strong> Posts quick, healthy, and cheap cooking tutorial videos on Instagram and Facebook to show that healthy eating is accessible to everyone."
+                ]
+            },
+            cancer: {
+                obj: [
+                    "<strong>Increase Early Detection:</strong> To significantly improve the early detection rates of breast, lung, and bowel cancers to improve survival rates.",
+                    "<strong>Raise Awareness of Symptoms:</strong> To educate the public on the general signs and symptoms of cancer that they might otherwise ignore.",
+                    "<strong>Encourage Action:</strong> To remove the fear of doctors and encourage anyone who notices an unexplained bodily change to immediately make a GP appointment."
+                ],
+                methods: [
+                    "<strong>Symptom-Specific Adverts:</strong> Uses targeted mass media (TV/Radio) highlighting specific symptoms, such as the lung cancer advert stating <em>'If you have been coughing for three weeks or more, tell your GP'</em>.",
+                    "<strong>Educational Literature:</strong> Places detailed symptom-check leaflets in high-footfall community areas like pharmacies, libraries, and health centres.",
+                    "<strong>Empowering Slogans:</strong> Uses slogans like <em>'Early detection saves lives'</em> and <em>'Be Cancer Aware'</em> to motivate action rather than using fear arousal.",
+                    "<strong>Targeted Digital Ads:</strong> Uses internet algorithms to serve targeted adverts to higher-risk age groups who may be reluctant to visit their doctor."
+                ]
+            }
+        };
+
+        function selectCampaign(key) {
+            document.querySelectorAll('.campaign-tab').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`camp-${key}`).classList.add('active');
+            
+            const data = campaignData[key];
+            const content = document.getElementById('campaign-content');
+            
+            content.classList.remove('fade-in');
+            void content.offsetWidth;
+            content.classList.add('fade-in');
+
+            const objList = document.getElementById('camp-obj-list');
+            objList.innerHTML = data.obj.map((item, index) => `
+                <li class="flex items-start gap-3 bg-stone-50 p-4 rounded-lg border border-stone-100">
+                    <span class="text-teal-600 font-bold">${index + 1}.</span>
+                    <span class="text-stone-700 text-sm">${item}</span>
+                </li>
+            `).join('');
+
+            const methodsList = document.getElementById('camp-methods-list');
+            methodsList.innerHTML = data.methods.map(item => `
+                <li class="flex items-start gap-2">
+                    <span class="text-teal-500 mt-1">✔</span>
+                    <span>${item}</span>
+                </li>
+            `).join('');
+        }
+
+        // DATA FOR STRATEGIES
+        const strategyData = {
+            medical: {
+                title: "Medical Approach", label: "Preventative & Clinical", labelColor: "bg-purple-100 text-purple-800",
+                desc: "A highly 'top-down' approach focusing on identifying and treating physiological risks to prevent disease or reduce its impact. It heavily relies on the expertise of health professionals and includes interventions like national screening programmes (e.g., breast cancer), immunisations, and prescribing preventative medications.",
+                strengths: [
+                    "<strong>Cost-Effective:</strong> It is significantly cheaper for the NHS to prevent diseases (via vaccines or early screening) than to fund long-term hospital treatments.",
+                    "<strong>Expert-Led:</strong> Because it is led by trusted medical professionals and based on clear scientific evidence, it instils high public confidence and high compliance rates.",
+                    "<strong>Clear Measurement:</strong> Success is highly measurable using statistics (e.g., tracking the drop in measles cases following a vaccination campaign)."
+                ],
+                weaknesses: [
+                    "<strong>Medical Dependency:</strong> It can create a culture where patients overly rely on doctors to 'fix' them with medication, rather than taking personal responsibility for their lifestyle choices.",
+                    "<strong>Ignores Root Causes:</strong> It treats the physical symptoms but completely ignores the social, economic, or environmental determinants of health (e.g., poverty, poor housing).",
+                    "<strong>Top-Down Approach:</strong> It takes away personal empowerment, as patients are simply told what to do by professionals rather than being involved in the decision-making process."
+                ]
+            },
+            educational: {
+                title: "Educational Approach", label: "Knowledge-Based", labelColor: "bg-emerald-100 text-emerald-800",
+                desc: "This approach focuses on providing individuals with the knowledge, information, and life skills they need to make informed choices about their own health. It assumes that if people fully understand the risks (the 'Why'), they will voluntarily change their behaviour. Commonly uses leaflets, websites, and school PHSE lessons.",
+                strengths: [
+                    "<strong>Respects Autonomy:</strong> It highly respects an individual's freedom of choice; it provides the facts but does not force or coerce them into making a change.",
+                    "<strong>Empowerment:</strong> It equips individuals with the knowledge to take long-term control over their own health decisions, building confidence.",
+                    "<strong>Wide Distribution:</strong> It is relatively cheap and easy to distribute information across a wide population using the internet, social media, or public posters."
+                ],
+                weaknesses: [
+                    "<strong>Knowledge ≠ Action:</strong> A major flaw is assuming that knowledge automatically leads to behaviour change; many people know smoking is deadly but continue to smoke due to addiction.",
+                    "<strong>Widens Health Inequalities:</strong> It heavily favours individuals with higher levels of education and literacy, leaving behind marginalized groups who may struggle to understand complex medical leaflets.",
+                    "<strong>Hard to Measure:</strong> It is incredibly difficult to track if simply handing out a leaflet actually resulted in a permanent lifestyle change."
+                ]
+            },
+            behaviour: {
+                title: "Behaviour Change Approach", label: "Lifestyle Focused", labelColor: "bg-amber-100 text-amber-800",
+                desc: "This approach encourages individuals to take active, personal responsibility for their own habits, adopting healthier lifestyles through specific, actionable steps. It focuses on individual choices such as joining a smoking cessation group, downloading a calorie-counting app, or participating in the 'Couch to 5k' programme.",
+                strengths: [
+                    "<strong>Personal Responsibility:</strong> It strongly promotes self-reliance, encouraging individuals to take ownership of their daily habits and choices.",
+                    "<strong>Targeted Interventions:</strong> It targets specific, known risk factors (e.g., bad diet, smoking) with actionable plans that can be tailored to individual needs.",
+                    "<strong>Sense of Achievement:</strong> When individuals successfully change a habit (like running a 5k or quitting smoking), it massively boosts their self-esteem and psychological well-being."
+                ],
+                weaknesses: [
+                    "<strong>Victim-Blaming:</strong> A major ethical weakness; if an individual fails to change or gets sick, this approach blames them for their 'poor choices' rather than looking at external factors.",
+                    "<strong>Ignores Poverty:</strong> It often ignores complex socio-economic barriers. It asks people to eat healthier, ignoring that fresh food is often more expensive than processed junk food.",
+                    "<strong>High Relapse Rates:</strong> Entrenched habits and addictions are incredibly difficult to break, meaning relapse rates for behaviour change programmes are notoriously high."
+                ]
+            },
+            societal: {
+                title: "Societal / Social Change", label: "Structural & Legislative", labelColor: "bg-blue-100 text-blue-800",
+                desc: "Also known as the structural approach, this aims to change the physical and social environment through government policies, laws, and legislation. It makes the healthy choice the easiest, cheapest, or only choice. Examples include the indoor smoking ban, the mandatory seatbelt law, and the Sugar Tax.",
+                strengths: [
+                    "<strong>Addresses Root Causes:</strong> It goes beyond the individual to tackle the root environmental and economic causes of health inequalities.",
+                    "<strong>Mass Population Reach:</strong> Laws and taxes reach the entire population immediately, regardless of their social class, education, or literacy levels.",
+                    "<strong>Removes the Burden of Choice:</strong> Individuals do not have to rely on willpower to make a healthy choice because the environment is structurally altered to protect them (e.g., they literally cannot smoke inside)."
+                ],
+                weaknesses: [
+                    "<strong>The 'Nanny State':</strong> It is frequently criticised as being overly controlling, restricting civil liberties, and interfering in people's right to make their own lifestyle choices.",
+                    "<strong>Slow to Implement:</strong> It can take years or even decades of fierce political debate and lobbying to pass significant health legislation.",
+                    "<strong>High Enforcement Costs:</strong> It requires significant funding and resources to legally monitor and enforce new rules (e.g., paying officials to inspect premises for smoking)."
+                ]
+            },
+            fear: {
+                title: "Fear Arousal Approach", label: "Shock & Emotional", labelColor: "bg-rose-100 text-rose-800",
+                desc: "This approach deliberately uses graphic imagery, shocking statistics, or emotional distress to scare people into rapidly changing dangerous health habits. It aims to break through a person's denial by showing them the extreme consequences of their actions. Common examples include graphic anti-speeding adverts or pictures of diseased lungs on cigarette packets.",
+                strengths: [
+                    "<strong>Breaks Through Denial:</strong> It is highly effective at forcing individuals to face the severe risks they normally choose to ignore or deny.",
+                    "<strong>Instant Attention Grabber:</strong> In a world saturated with media, shocking or graphic imagery guarantees public attention and instantly starts conversations.",
+                    "<strong>Highly Memorable:</strong> The emotional impact of a terrifying advert ensures the core message stays in the public consciousness for a long time."
+                ],
+                weaknesses: [
+                    "<strong>Defensive Avoidance:</strong> If an advert is too terrifying, individuals will employ 'defensive avoidance'—they simply change the channel or look away, completely tuning out the message to protect themselves from distress.",
+                    "<strong>Ethical Concerns:</strong> Deliberately causing anxiety, fear, and emotional distress to the general public (including children who may see the adverts) raises significant ethical issues.",
+                    "<strong>Desensitisation:</strong> Over time, if the public is repeatedly exposed to shocking images (like those on cigarette packets), the shock value wears off and the approach loses all effectiveness."
+                ]
+            }
+        };
+
+        function selectStrategy(key) {
+            document.querySelectorAll('.strategy-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${key}`).classList.add('active');
+            
+            const data = strategyData[key];
+            const content = document.getElementById('strategy-content');
+            
+            content.classList.remove('fade-in');
+            void content.offsetWidth;
+            content.classList.add('fade-in');
+
+            document.getElementById('content-title').textContent = data.title;
+            const labelEl = document.getElementById('content-label');
+            labelEl.textContent = data.label;
+            labelEl.className = `inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 ${data.labelColor}`;
+            document.getElementById('content-desc').innerHTML = data.desc;
+            
+            const updateList = (id, items) => {
+                const list = document.getElementById(id);
+                list.innerHTML = items.map(t => `<li class="flex items-start gap-3 text-stone-600 text-sm">
+                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-stone-400 flex-shrink-0"></span>
+                    <span>${t}</span>
+                </li>`).join('');
+            };
+            updateList('content-strengths', data.strengths);
+            updateList('content-weaknesses', data.weaknesses);
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('strategyRadarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Mass Population Reach', 'Patient Autonomy', 'Tackling Inequality', 'Shock Factor', 'Evidence/Measurement'],
+                    datasets: [
+                        { label: 'Medical', data: [8, 3, 6, 2, 10], borderColor: '#9333ea', backgroundColor: 'rgba(147, 51, 234, 0.1)' },
+                        { label: 'Educational', data: [7, 10, 3, 1, 4], borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)' },
+                        { label: 'Behaviour', data: [5, 8, 4, 2, 7], borderColor: '#f59e0b', backgroundColor: 'rgba(245, 158, 11, 0.1)' },
+                        { label: 'Societal', data: [10, 2, 10, 3, 8], borderColor: '#1d4ed8', backgroundColor: 'rgba(29, 78, 216, 0.1)' },
+                        { label: 'Fear Arousal', data: [8, 6, 4, 10, 5], borderColor: '#e11d48', backgroundColor: 'rgba(225, 29, 72, 0.1)' }
+                    ]
+                },
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false, 
+                    plugins: { legend: { position: 'bottom' } },
+                    scales: { r: { min: 0, max: 10, ticks: { display: false } } }
+                }
+            });
+        }
+
+        // EXAM PRACTICE LOGIC
+        function updateQuestionHint() {
+            var q = document.getElementById("questionSelect").value;
+            var hintBox = document.getElementById("hintBox");
+            
+            var hints = {
+                "q_camp": "<strong>Exam Tip:</strong> Name a specific campaign (e.g., Care in the Sun or Choose to Live Better). Clearly list 2-3 objectives. Then, in separate paragraphs, evaluate 3+ methods they use (e.g., mass media, leaflets, slogans, partnerships).",
+                "q_resp": "<strong>Exam Tip:</strong> Provide distinct paragraphs for 'Lifestyle Choices' (diet/exercise/addictions) and 'Accessing Services' (screenings/GP/pharmacy). Make sure to explain the knock-on effects for their health to hit Level 3.",
+                "q_med": "<strong>Exam Tip:</strong> 'Evaluate' means you must provide Strengths AND Weaknesses. Aim for detailed paragraphs outlining the strengths (e.g., cost-effective, measurable) and weaknesses (e.g., ignores root causes, dependency) of the Medical approach.",
+                "q_edu": "<strong>Exam Tip:</strong> 'Evaluate' means you must provide Strengths AND Weaknesses. Aim for detailed paragraphs outlining the strengths (e.g., respects autonomy, empowerment) and weaknesses (e.g., knowledge doesn't equal action, widens inequalities) of the Educational approach.",
+                "q_beh": "<strong>Exam Tip:</strong> 'Evaluate' means you must provide Strengths AND Weaknesses. Aim for detailed paragraphs outlining the strengths (e.g., promotes personal responsibility, targeted) and weaknesses (e.g., victim-blaming, ignores poverty) of the Behaviour Change approach.",
+                "q_soc": "<strong>Exam Tip:</strong> 'Evaluate' means you must provide Strengths AND Weaknesses. Aim for detailed paragraphs outlining the strengths (e.g., reaches everyone equally, tackles root causes) and weaknesses (e.g., nanny state, slow to implement) of the Societal/Social Change approach.",
+                "q_fear": "<strong>Exam Tip:</strong> 'Evaluate' means you must provide Strengths AND Weaknesses. Aim for detailed paragraphs outlining the strengths (e.g., breaks through denial, highly memorable) and weaknesses (e.g., defensive avoidance, desensitisation) of the Fear Arousal approach."
+            };
+            
+            hintBox.innerHTML = hints[q];
+        }
+
+        function generateAIPrompt() {
+            var studentText = document.getElementById("studentAnswer").value;
+            var selectedQuestion = document.getElementById("questionSelect");
+            var questionText = selectedQuestion.options[selectedQuestion.selectedIndex].text;
+            var qValue = selectedQuestion.value;
+
+            if (studentText.trim() === "") {
+                alert("Please type an answer before generating feedback!");
+                return;
+            }
+
+            var markScheme = "";
+            
+            if (qValue === "q_camp") {
+                markScheme = "- Level 3 (9-12 marks): Must name a valid PHA NI campaign. Must analyse both its objectives AND how it uses methods (media, posters, slogans) effectively. Quality of Written Communication is highly assessed.";
+            } else if (qValue === "q_resp") {
+                markScheme = "- Level 3 (9-12 marks): Must discuss both lifestyle choices and accessing services in detail with clear links to physical/psychological/social well-being.";
+            } else if (["q_med", "q_edu", "q_beh", "q_soc", "q_fear"].includes(qValue)) {
+                markScheme = "- Level 3 (9-12 marks): Must evaluate (give BOTH strengths and weaknesses) for the specific approach comprehensively. Look for specific CCEA terminology appropriate to the approach (e.g. 'defensive avoidance', 'victim blaming', 'nanny state', 'measurable outcomes').";
+            }
+
+            var promptTemplate = `Act as an expert CCEA GCE Health and Social Care examiner marking Year 13 papers.
+Please mark the following student answer to this past-paper question:
+"${questionText}"
+
+### Marking Instructions & CCEA Mark Scheme:
+${markScheme}
+Check heavily for the PEE (Point, Evidence, Explanation) structure. Quality of Written Communication (QWC) is heavily assessed.
+
+### Student Answer:
+"""
+${studentText}
+"""
+
+### Feedback Required:
+1. What went well (Highlight strong PEE structures, use of CCEA terminology, and valid points).
+2. Even better if (Identify missing explanations, missing sides of an evaluation, or if they forgot to link a point back to well-being).
+3. An estimated Mark based on the CCEA Levelled banding with a brief justification.`;
+
+            document.getElementById("generatedPrompt").value = promptTemplate;
+            document.getElementById("promptOutputBox").classList.remove('hidden');
+        }
+
+        function copyPrompt() {
+            var copyText = document.getElementById("generatedPrompt");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            alert("Prompt copied! Now paste this into ChatGPT, Gemini, or Claude.");
+        }
+
+        window.onload = () => { 
+            selectStrategy('medical'); 
+            selectCampaign('sun');
+            initChart(); 
+        };
+    </script>
+</body>
+</html>
