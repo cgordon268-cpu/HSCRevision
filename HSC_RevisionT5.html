@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCEA Unit 3: Discrimination & ADP Revision Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background-color: #fcfaf8; color: #292524; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        .chart-container { position: relative; width: 100%; max-width: 650px; margin-left: auto; margin-right: auto; height: 380px; }
+        @media (min-width: 768px) { .chart-container { height: 450px; } }
+        .topic-btn.active { background-color: #0f766e; color: white; border-color: #0f766e; transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        .topic-btn:not(.active) { background-color: #ffffff; color: #0f766e; border-color: #ccfbf1; }
+        .fade-in { animation: fadeIn 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-teal-800 text-white py-12 px-6 shadow-md">
+        <div class="max-w-5xl mx-auto text-center md:text-left">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Topic 5: Discrimination & ADP</h1>
+            <p class="text-xl text-teal-100 max-w-3xl">Comprehensive Revision Hub for CCEA Unit 3. Master the definitions, all 7 bases of discrimination across different settings, detailed PIES impacts, and the crucial 4-part role of the manager.</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 mt-10 space-y-12">
+
+        <section class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 border-l-4 border-l-rose-500">
+                <h2 class="text-xl font-bold text-stone-800 mb-2">Prejudice (The Thought)</h2>
+                <ul class="text-stone-600 text-sm space-y-2 list-disc pl-5">
+                    <li>Attitudes or pre-judgements made about others which eventually lead to discrimination.</li>
+                    <li>Usually negative attitudes which are often based entirely on ignorance.</li>
+                    <li>Having stereotyped views (e.g., blindly believing older people are less intelligent).</li>
+                </ul>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 border-l-4 border-l-teal-500">
+                <h2 class="text-xl font-bold text-stone-800 mb-2">Discrimination (The Action)</h2>
+                <ul class="text-stone-600 text-sm space-y-2 list-disc pl-5">
+                    <li>Unfair treatment based on gender, race, sexuality, disability, or beliefs.</li>
+                    <li>The active, unfair treatment of a person based on prejudice and intolerance.</li>
+                    <li>Denying an individual or a specific group the exact same rights everyone else enjoys.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="explorer">
+            <h2 class="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2">
+                <span class="p-2 bg-teal-100 rounded-lg text-teal-700">🔍</span> Topic 5 Deep Dive
+            </h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+                <button onclick="selectTopicArea('examples')" id="btn-examples" class="topic-btn active px-3 py-3 rounded-xl border-2 text-center font-bold text-xs md:text-sm transition-all">Bases & Examples</button>
+                <button onclick="selectTopicArea('impact_discrim')" id="btn-impact_discrim" class="topic-btn px-3 py-3 rounded-xl border-2 text-center font-bold text-xs md:text-sm transition-all">Impact of Discrimination</button>
+                <button onclick="selectTopicArea('impact_adp')" id="btn-impact_adp" class="topic-btn px-3 py-3 rounded-xl border-2 text-center font-bold text-xs md:text-sm transition-all">Impact of ADP</button>
+                <button onclick="selectTopicArea('managers')" id="btn-managers" class="topic-btn px-3 py-3 rounded-xl border-2 text-center font-bold text-xs md:text-sm transition-all">Role of the Manager</button>
+            </div>
+
+            <div id="topic-content" class="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden fade-in">
+                <div class="p-6 md:p-8 border-b border-stone-100 bg-teal-50/30">
+                    <span id="content-label" class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Label</span>
+                    <h3 id="content-title" class="text-3xl font-extrabold text-stone-800 mb-3">Title</h3>
+                    <p id="content-desc" class="text-lg text-stone-600 leading-relaxed max-w-4xl"></p>
+                </div>
+
+                <div id="dynamic-content-container" class="p-6 md:p-8 grid gap-10">
+                    </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 hidden md:block">
+            <h2 class="text-2xl font-bold text-stone-800 mb-6">Outcome Comparison Matrix</h2>
+            <div class="chart-container">
+                <canvas id="topicRadarChart"></canvas>
+            </div>
+            <p class="text-center text-sm text-stone-500 mt-4 italic">Visualizing the drastic difference in outcomes between Discriminatory settings and Anti-Discriminatory settings.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 md:p-8">
+            <h2 class="text-2xl font-bold text-stone-800 mb-4 flex items-center gap-2">
+                <span class="p-2 bg-orange-100 rounded-lg text-orange-700">✍️</span> High-Value Question Practice Area
+            </h2>
+            <p class="text-stone-600 mb-6">Select a past-paper question from the dropdown below, type your answer, and generate a custom AI prompt for instant CCEA-style feedback.</p>
+            
+            <label for="questionSelect" class="font-bold text-stone-800 block mb-2">Select a Question:</label>
+            <select id="questionSelect" onchange="updateQuestionHint()" class="w-full p-3 text-base mb-6 border-2 border-stone-200 rounded-xl focus:outline-none focus:border-teal-600 font-sans bg-stone-50">
+                <option value="q_manager">Analyse how managers may promote anti-discriminatory practice in health, social care and early years settings. (12 marks)</option>
+                <option value="q_impact_discrim">Demonstrate understanding of how discriminatory practice can impact on the physical, social and psychological health and well-being of service users. (12 marks)</option>
+                <option value="q_examples">Describe three examples of discrimination in a healthcare setting. (9 marks)</option>
+                <option value="q_definitions">Define the terms prejudice and discrimination. (4 marks)</option>
+            </select>
+
+            <div id="hintBox" class="bg-orange-50 p-4 border-l-4 border-orange-500 mb-6 rounded-r-xl italic text-stone-700 text-sm">
+                <strong>Exam Tip:</strong> For this 12-mark question, use 4 specific paragraphs based on the syllabus: 1. Policies (Whistleblowing/Complaints), 2. Practices (Training), 3. Setting Examples, 4. Directly Challenging/Disciplinary action. Give examples for each.
+            </div>
+            
+            <textarea id="studentAnswer" rows="10" class="w-full p-4 border-2 border-stone-200 rounded-xl text-base resize-y focus:outline-none focus:border-teal-600 font-sans mb-4" placeholder="Type your structured answer here..."></textarea>
+            
+            <button onclick="generateAIPrompt()" class="bg-teal-700 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-xl transition-all shadow-sm w-full md:w-auto">Generate Marking Rubric & Feedback Prompt</button>
+
+            <div id="promptOutputBox" class="hidden bg-amber-50 p-5 border-l-4 border-amber-500 mt-6 rounded-r-xl">
+                <h3 class="text-lg font-bold text-amber-900 mb-2">Step 2: Get Your Feedback!</h3>
+                <p class="text-sm text-amber-800 mb-4">Your answer is ready to be marked. Click "Copy to Clipboard", then paste it into an AI tool (like ChatGPT or Gemini) to get instant CCEA-style feedback.</p>
+                <textarea id="generatedPrompt" readonly class="w-full h-64 p-3 font-mono text-sm border border-amber-200 rounded-lg bg-white mb-3 text-stone-700 focus:outline-none"></textarea>
+                <button onclick="copyPrompt()" class="bg-stone-800 hover:bg-stone-700 text-white font-bold py-2 px-4 rounded-lg transition-all text-sm">Copy to Clipboard</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // COMPREHENSIVE DATA FOR TOPIC 5
+        const topicData = {
+            examples: {
+                title: "Bases of Discrimination", label: "Examples & Scenarios", labelColor: "bg-blue-100 text-blue-800",
+                desc: "The CCEA specification requires you to identify how discrimination (and anti-discriminatory practice) occurs across specific bases (Race, Beliefs, Gender, Disability, Cognitive Ability, Mental Health, Sexuality) within specific Health, Social Care, and Early Years settings.",
+                sections: [
+                    {
+                        heading: "Discriminatory Practice (Bad Practice)",
+                        items: [
+                            "<strong>Race:</strong> A hospital consultant refusing to provide a professional translator for a patient who does not speak English, relying instead on the patient's child to translate complex medical news.",
+                            "<strong>Beliefs/Religion:</strong> A social care worker serving non-Kosher/Halal food to Jewish or Muslim residents, entirely failing to consult them about their religious dietary requirements.",
+                            "<strong>Gender:</strong> An early years practitioner actively stopping young boys from playing in the 'home corner' or stopping girls from playing with construction blocks, reinforcing sexist stereotypes.",
+                            "<strong>Disability:</strong> A nurse handing a patient with severe visual impairment a post-operative care leaflet in tiny print, or a doctor speaking exclusively to a wheelchair user's carer rather than addressing the patient directly.",
+                            "<strong>Cognitive Ability:</strong> Staff in a residential home speaking down to an adult with a learning disability (like Down Syndrome) using a childish, patronising tone, stripping them of their adult autonomy.",
+                            "<strong>Mental Health:</strong> A GP dismissing a patient's genuine complaints of severe physical pain by casually blaming it entirely on their history of clinical depression or anxiety ('it's all in your head').",
+                            "<strong>Sexuality:</strong> A hospital receptionist refusing to acknowledge a same-sex partner as 'next of kin' during a medical emergency, or staff participating in homophobic 'banter' in the break room."
+                        ]
+                    },
+                    {
+                        heading: "Anti-Discriminatory Practice (Good Practice)",
+                        items: [
+                            "<strong>Race:</strong> An early years manager ensuring that all physical resources (storybooks, dolls, posters) actively represent a diverse range of cultures and ethnicities to prevent early marginalisation.",
+                            "<strong>Beliefs/Religion:</strong> A care home manager carrying out a comprehensive spiritual assessment upon admission and providing a dedicated, quiet prayer room for residents to use uninterrupted.",
+                            "<strong>Gender:</strong> A nursery actively encouraging all children, regardless of gender, to participate equally in all activities (e.g., both boys and girls taking part in football and doll-play).",
+                            "<strong>Disability:</strong> A hospital proactively installing physical aids like hearing loops at reception desks, providing Braille signage, and ensuring all corridors are kept strictly clear for wheelchair access.",
+                            "<strong>Cognitive Ability:</strong> A social worker providing a service user with an 'Easy Read' care plan containing pictures and simple text, and ensuring an independent advocate is present at all their meetings.",
+                            "<strong>Mental Health:</strong> A care worker showing deep empathy and patience during a service user's panic attack, offering floating support without judgment or stigmatisation.",
+                            "<strong>Sexuality:</strong> A GP surgery intentionally using inclusive language on all patient intake forms (e.g., asking for 'partner' instead of 'husband/wife') and displaying LGBTQ+ safe space posters."
+                        ]
+                    }
+                ]
+            },
+            impact_discrim: {
+                title: "Impact of Discriminatory Practice", label: "Negative PIES Outcomes", labelColor: "bg-rose-100 text-rose-800",
+                desc: "When discrimination occurs, it completely destroys the Care Value Base and has severe, long-lasting impacts on a service user's Physical, Psychological, and Social well-being.",
+                sections: [
+                    {
+                        heading: "Physical Impacts",
+                        items: [
+                            "<strong>Worsening of Primary Conditions:</strong> If a patient is ignored or their needs are dismissed due to prejudice, their primary medical condition may rapidly deteriorate (e.g., developing severe bedsores or untreated infections).",
+                            "<strong>Stress-Related Illness:</strong> Chronic exposure to discrimination creates a severe 'fight or flight' response. This chronic stress directly causes physical symptoms like high blood pressure, migraines, and digestive issues.",
+                            "<strong>Self-Harm & Substance Abuse:</strong> In extreme cases of marginalisation (e.g., homophobia or racism), individuals may resort to physical self-harm or turn to alcohol and drugs as a coping mechanism to numb the trauma.",
+                            "<strong>Poor Nutrition & Hygiene:</strong> If specific dietary needs (e.g., Kosher/Halal) or personal care needs are deliberately ignored due to discriminatory attitudes, the service user faces malnourishment and severe physical neglect."
+                        ]
+                    },
+                    {
+                        heading: "Psychological Impacts",
+                        items: [
+                            "<strong>Severe Loss of Self-Esteem:</strong> Being treated unfairly makes service users feel utterly worthless, demoralised, and stripped of their basic human dignity. They often internalise the prejudice and feel immense shame.",
+                            "<strong>Clinical Anxiety & Depression:</strong> Constant marginalisation creates a hostile, threatening environment leading to chronic clinical depression, paranoia, and a debilitating fear of interacting with healthcare staff.",
+                            "<strong>Loss of Identity:</strong> Being stereotyped or having cultural/religious needs completely ignored strips the individual of their unique identity, leading to severe emotional distress and confusion.",
+                            "<strong>Cognitive Stagnation:</strong> If a child in an early years setting is excluded from activities due to gender or race, they miss out on vital cognitive stimulation, drastically hindering their intellectual development."
+                        ]
+                    },
+                    {
+                        heading: "Social Impacts",
+                        items: [
+                            "<strong>Extreme Isolation & Withdrawal:</strong> Service users may actively withdraw from all social settings (like care home lounges or day centres) to hide in their rooms to avoid discriminatory staff or abusive residents.",
+                            "<strong>Complete Loss of Trust:</strong> The individual loses all trust in the healthcare system. Consequently, they may refuse to seek vital medical help or attend future appointments, entirely severing their support networks.",
+                            "<strong>Alienation from Peers:</strong> Being openly discriminated against by staff can cause other service users to socially distance themselves from the victim, leading to total social alienation and loneliness.",
+                            "<strong>Breakdown of Family Ties:</strong> The extreme stress, anger, and trauma of receiving discriminatory care can place massive strain on the service user's relationships with their family and friends."
+                        ]
+                    }
+                ]
+            },
+            impact_adp: {
+                title: "Impact of Anti-Discriminatory Practice", label: "Positive PIES Outcomes", labelColor: "bg-emerald-100 text-emerald-800",
+                desc: "When staff actively promote equality, diversity, and rights, it creates a safe, empowering environment that significantly boosts the Physical, Psychological, and Social well-being of the service user.",
+                sections: [
+                    {
+                        heading: "Physical Impacts",
+                        items: [
+                            "<strong>Faster Physical Recovery:</strong> When a patient's cultural, dietary, and physical needs are fully met (e.g., receiving proper Halal nutrition or appropriate disability mobility aids), their body receives the exact care needed to heal much faster.",
+                            "<strong>Enhanced Pain Management:</strong> Because the patient feels entirely safe and respected, they are far more likely to communicate openly about their physical pain, allowing staff to provide accurate, timely medication.",
+                            "<strong>Safe & Accessible Environments:</strong> ADP ensures rigorous physical safety standards are met for everyone (e.g., installing ramps, hearing loops, and accessible showers), drastically reducing the risk of falls or medical negligence.",
+                            "<strong>Reduced Physical Stress:</strong> A welcoming, inclusive environment eliminates the 'fight or flight' stress response, naturally lowering blood pressure, improving sleep quality, and boosting the immune system."
+                        ]
+                    },
+                    {
+                        heading: "Psychological Impacts",
+                        items: [
+                            "<strong>High Self-Esteem & Empowerment:</strong> When service users are treated with absolute dignity and their beliefs are respected, they feel highly valued, confident in their identity, and empowered to take control of their own care decisions.",
+                            "<strong>Eradication of Fear & Anxiety:</strong> Knowing that staff actively respect and protect their sexuality, race, or disability completely removes fear. This creates a calm, stress-free psychological environment that fosters mental resilience.",
+                            "<strong>Intellectual Stimulation:</strong> Providing translators or 'easy-read' leaflets ensures the patient fully understands their treatment. This allows them to intellectually engage with their care plan and give informed consent.",
+                            "<strong>Validation of Identity:</strong> Acknowledging and celebrating a service user's culture or lifestyle validates who they are as a person, leading to profound emotional stability and happiness."
+                        ]
+                    },
+                    {
+                        heading: "Social Impacts",
+                        items: [
+                            "<strong>Active Social Integration:</strong> Inclusive care settings (like providing diverse activities and celebrating various cultural festivals) encourage all residents to mix freely, building strong, diverse friendships and eradicating social isolation.",
+                            "<strong>Trusting Professional Relationships:</strong> ADP builds a deep, unbreakable trust between the patient and the practitioner. The patient feels socially connected and supported by their care team.",
+                            "<strong>Engagement with Community Services:</strong> A positive experience free from discrimination makes the service user highly likely to engage with future community health services, support groups, or day centres.",
+                            "<strong>Enhanced Family Involvement:</strong> When a setting practices ADP, the service user's family feels welcome, respected, and socially integrated into the care planning process, strengthening family bonds."
+                        ]
+                    }
+                ]
+            },
+            managers: {
+                title: "The Role of the Manager", label: "Enforcing ADP", labelColor: "bg-amber-100 text-amber-800",
+                desc: "The manager holds the ultimate responsibility for ensuring their setting is free from discrimination. The CCEA syllabus requires you to analyse four specific methods managers use to achieve this.",
+                sections: [
+                    {
+                        heading: "1. Implementing Policies",
+                        items: [
+                            "<strong>Whistleblowing Policy:</strong> Managers must legally enforce a strict whistleblowing policy. This creates a safe channel for staff to report discriminatory behaviour (e.g., racism from a colleague) without fear of losing their job or facing retaliation.",
+                            "<strong>Complaints Procedures:</strong> Managers must ensure clear, accessible complaints procedures are available so patients and their families can easily report unfair treatment.",
+                            "<strong>Equal Opportunities Policy:</strong> Managers must write and enforce strict hiring policies to ensure staff are recruited based entirely on merit, regardless of their gender, race, or disability.",
+                            "<strong>Policy Reviews:</strong> Managers must regularly review and update all workplace policies to ensure they align with the most recent government equality legislation and laws."
+                        ]
+                    },
+                    {
+                        heading: "2. Developing Practices",
+                        items: [
+                            "<strong>Mandatory Training:</strong> Managers must implement ongoing, mandatory equality and diversity training for all staff. This ensures staff are legally up-to-date and helps eliminate unconscious biases.",
+                            "<strong>Staff Supervision:</strong> Managers must closely supervise inexperienced or new staff on the floor to ensure they are actively applying the Care Value Base correctly in their day-to-day work.",
+                            "<strong>Regular Appraisals:</strong> Managers must conduct one-to-one appraisals to discuss staff performance specifically regarding how inclusively they are treating service users.",
+                            "<strong>Specialist Workshops:</strong> Managers should arrange specific developmental practices, such as booking basic sign-language courses or cultural competency workshops for the care team."
+                        ]
+                    },
+                    {
+                        heading: "3. Setting Examples (Role Modelling)",
+                        items: [
+                            "<strong>Using Inclusive Language:</strong> Managers must 'lead by example' by actively using highly respectful, inclusive language at all times to set the ultimate standard for the entire team to follow.",
+                            "<strong>Treating Everyone with Dignity:</strong> Managers must visibly demonstrate how to treat all patients, visitors, and subordinate staff with absolute fairness and unwavering respect.",
+                            "<strong>Diverse Resources:</strong> In an early years setting or care home, the manager must ensure physical resources (books, posters, menus) actively reflect a diverse range of cultures and family structures.",
+                            "<strong>Celebrating Diversity:</strong> The manager should proactively organize the celebration of diverse cultural and religious festivals (e.g., Diwali, Eid, Pride) within the care setting to normalize diversity."
+                        ]
+                    },
+                    {
+                        heading: "4. Challenging & Disciplinary Action",
+                        items: [
+                            "<strong>Interrupting 'Banter':</strong> Managers must not ignore 'banter'. They must immediately and directly challenge any discriminatory language or offensive jokes from staff, patients, or visitors.",
+                            "<strong>Providing Corrective Guidance:</strong> If a staff member unwittingly uses inappropriate language, the manager must pull them aside, explain exactly *why* it is unacceptable, and educate them on the correct terminology.",
+                            "<strong>Formal Disciplinary Procedures:</strong> If a staff member is deliberately malicious (e.g., bullying a patient based on sexuality), the manager must use formal disciplinary action, which includes written warnings, suspension, or dismissal.",
+                            "<strong>Reporting to Professional Bodies:</strong> For severe cases of discrimination, the manager has a legal duty to report the dangerous staff member to their professional body (e.g., the Nursing and Midwifery Council - NMC) to have them struck off the professional register."
+                        ]
+                    }
+                ]
+            }
+        };
+
+        function selectTopicArea(key) {
+            document.querySelectorAll('.topic-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${key}`).classList.add('active');
+            
+            const data = topicData[key];
+            const content = document.getElementById('topic-content');
+            
+            // Apply Fade Effect
+            content.classList.remove('fade-in');
+            void content.offsetWidth; // Trigger reflow
+            content.classList.add('fade-in');
+
+            document.getElementById('content-title').textContent = data.title;
+            const labelEl = document.getElementById('content-label');
+            labelEl.textContent = data.label;
+            labelEl.className = `inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 ${data.labelColor}`;
+            document.getElementById('content-desc').innerHTML = data.desc;
+            
+            // Dynamic Grid Generation
+            const container = document.getElementById('dynamic-content-container');
+            
+            // Determine grid layout based on number of sections
+            let gridClass = 'md:grid-cols-2';
+            if(data.sections.length === 3) gridClass = 'md:grid-cols-3';
+            
+            container.className = `p-6 md:p-8 grid gap-10 ${gridClass}`;
+            
+            container.innerHTML = data.sections.map(sec => `
+                <div>
+                    <h4 class="text-lg font-bold text-teal-800 mb-4 border-b border-teal-100 pb-2">
+                        ${sec.heading}
+                    </h4>
+                    <ul class="space-y-4">
+                        ${sec.items.map(item => `
+                            <li class="flex items-start gap-3 text-stone-600 text-sm">
+                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-stone-400 flex-shrink-0"></span>
+                                <div class="flex-1">${item}</div>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `).join('');
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('topicRadarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Patient Safety', 'Self-Esteem & Empowerment', 'Social Inclusion', 'Legal Compliance', 'Trust in Care System'],
+                    datasets: [
+                        { label: 'Anti-Discriminatory Practice', data: [10, 10, 10, 10, 10], borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.2)' },
+                        { label: 'Discriminatory Practice', data: [2, 1, 1, 0, 1], borderColor: '#e11d48', backgroundColor: 'rgba(225, 29, 72, 0.2)' }
+                    ]
+                },
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false, 
+                    plugins: { legend: { position: 'bottom' } },
+                    scales: { r: { min: 0, max: 10, ticks: { display: false } } }
+                }
+            });
+        }
+
+        // EXAM PRACTICE LOGIC
+        function updateQuestionHint() {
+            var q = document.getElementById("questionSelect").value;
+            var hintBox = document.getElementById("hintBox");
+            
+            var hints = {
+                "q_manager": "<strong>Exam Tip:</strong> For this 12-mark question, use 4 specific paragraphs based on the syllabus: 1. Policies (Whistleblowing/Complaints), 2. Practices (Training), 3. Setting Examples, 4. Directly Challenging/Disciplinary action. Give specific healthcare examples for each.",
+                "q_impact_discrim": "<strong>Exam Tip:</strong> Write 3 distinct paragraphs: Physical, Psychological, and Social. Make sure to clearly explain the 'knock-on' effects (e.g., discrimination leads to isolation, which leads to depression, which leads to physical self-harm).",
+                "q_examples": "<strong>Exam Tip:</strong> For 9 marks, describe 3 different examples. State the base (e.g., Race, Disability, Beliefs) and clearly explain the scenario (e.g., ignoring a deaf patient, not providing Kosher food).",
+                "q_definitions": "<strong>Exam Tip:</strong> For 4 marks, write two sentences for Prejudice (the thought/ignorance) and two sentences for Discrimination (the action/unfair treatment)."
+            };
+            
+            hintBox.innerHTML = hints[q];
+        }
+
+        function generateAIPrompt() {
+            var studentText = document.getElementById("studentAnswer").value;
+            var selectedQuestion = document.getElementById("questionSelect");
+            var questionText = selectedQuestion.options[selectedQuestion.selectedIndex].text;
+            var qValue = selectedQuestion.value;
+
+            if (studentText.trim() === "") {
+                alert("Please type an answer before generating feedback!");
+                return;
+            }
+
+            var markScheme = "";
+            
+            if (qValue === "q_manager") {
+                markScheme = "- Level 3 (9-12 marks): Must display highly competent knowledge of FOUR ways managers promote ADP. Must cover Policies (whistleblowing), Practices (training/supervision), Setting examples, and Challenging/Disciplinary procedures. Quality of Written Communication is highly assessed.";
+            } else if (qValue === "q_impact_discrim") {
+                markScheme = "- Level 3 (9-12 marks): Must demonstrate clear understanding of the PHYSICAL, SOCIAL, and PSYCHOLOGICAL impacts of discrimination. Must show extended chains of reasoning (how one impact leads to another).";
+            } else if (qValue === "q_examples") {
+                markScheme = "- 9 Marks Total: [3] marks for each example. [1] mark for identifying the base (e.g., race, disability), [2] marks for clearly describing the discriminatory scenario in a healthcare setting.";
+            } else if (qValue === "q_definitions") {
+                markScheme = "- 4 Marks Total: [2] marks for Prejudice (attitudes based on pre-judgements/ignorance). [2] marks for Discrimination (unfair treatment/denying rights based on prejudice).";
+            }
+
+            var promptTemplate = `Act as an expert CCEA GCE Health and Social Care examiner marking Year 13 papers.
+Please mark the following student answer to this past-paper question:
+"${questionText}"
+
+### Marking Instructions & CCEA Mark Scheme:
+${markScheme}
+Where applicable, check for PEE (Point, Evidence, Explanation) structure. Quality of Written Communication (QWC) is heavily assessed for 12-mark questions. Look for specific CCEA terminology (e.g., 'whistleblowing', 'care value base', 'marginalisation').
+
+### Student Answer:
+"""
+${studentText}
+"""
+
+### Feedback Required:
+1. What went well (Highlight strong points, correct definitions, and good structure).
+2. Even better if (Identify missing explanations, missing PIES, or missing manager roles).
+3. An estimated Mark based on the CCEA mark scheme with a brief justification.`;
+
+            document.getElementById("generatedPrompt").value = promptTemplate;
+            document.getElementById("promptOutputBox").classList.remove('hidden');
+        }
+
+        function copyPrompt() {
+            var copyText = document.getElementById("generatedPrompt");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            alert("Prompt copied! Now paste this into ChatGPT, Gemini, or Claude.");
+        }
+
+        window.onload = () => { 
+            selectTopicArea('examples'); 
+            initChart(); 
+        };
+    </script>
+</body>
+</html>
